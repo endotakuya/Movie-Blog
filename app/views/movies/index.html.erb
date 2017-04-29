@@ -1,0 +1,21 @@
+<h1>「<%= @query %>」の検索結果</h1>
+
+<div class="movies clearfix">
+<% if @movies.present? %>
+<% @movies.each do |movie|%>
+  
+  <div class="movie_item clearfix">
+    <picture>
+      <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= movie['poster_path'] %>" alt="">
+    </picture>
+    <div class="movie_item_info">
+        <h2><%= link_to movie['title'], movie_path( movie['id']) %></h2>
+        <p><%= movie['overview']%></p>
+    </div>
+  </div>
+  
+<% end %>
+<% else %>
+<p>該当する映画は見つかりませんでした。</p>
+<% end %>
+</div>

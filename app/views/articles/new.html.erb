@@ -1,0 +1,41 @@
+<%= form_for(@article, html: { class: 'form-horizontal'}) do |f| %>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label">記事タイトル：</label>
+    <div class="col-md-10">
+      <%= f.text_field :article_title, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-xs-2 control-label">公開日：</label>
+    <div class="col-md-5">
+      <%= f.text_field :release_date, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-xs-2 control-label">監督名：</label>
+    <div class="col-md-5">
+      <%= f.text_field :director, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-xs-2 control-label">出演者：</label>
+    <div class="col-md-5">
+      <%= f.text_field :performer, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-xs-2 control-label">内容：</label>
+    <div class="col-md-10">
+    <%= f.text_area :content, class: 'form-control', rows: 10 %>
+    </div>
+  </div>
+  
+  <%= f.hidden_field :movie_title, value: @article.movie_title %>
+  <%= f.hidden_field :user_id, value: current_user.id   %>
+  <%= f.hidden_field :movie_id, value:  @article.movie_id   %>
+  <%= f.hidden_field :poster_url, value:  @article.poster_url   %>
+  
+  <%= f.submit '投稿', class: 'btn btn-primary center-block' %>
+
+<% end %>

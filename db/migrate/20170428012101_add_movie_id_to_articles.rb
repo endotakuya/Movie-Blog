@@ -1,0 +1,5 @@
+class AddMovieIdToArticles < ActiveRecord::Migration[5.0]
+  def change
+    add_column :articles, :movie_id, :string
+  end
+end

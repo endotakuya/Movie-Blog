@@ -39,7 +39,77 @@ footer {
 }
 .cover .cover-inner .cover-contents h1 {
   margin: 0 0 20px 0;
-  color: #fff;
+  color: #333;
   font-weight: bold;
   letter-spacing: 0.15em;
+}
+
+.movies{
+  width: 100% ;
+}
+.movie_item {
+  width: 48%;
+  float: left;
+  margin-right: 4%;
+  margin-bottom: 30px;
+}
+.movie_item picture{
+  width: 38%;
+  float: left;
+}
+.movie_item .movie_item_info{
+  width: 60%;
+  float: right;
+}
+.movie_item_info p{
+  font-size: 14px;
+  line-height: 1.3;
+}
+.movie_item:nth-child(even){ margin-right:  0; }
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.movie_detail{
+  width: 100%;
+  margin-bottom: 30px;
+}
+.movie_detail picture{
+  float: left;
+  width: 35%;
+  text-align: center;
+}
+.movie_detail .movie_detail_info{
+  float: right;
+  width: 65%;
+}
+.movie_detail_info h3{
+  font-size:24px;
+  margin-bottom: 20px;
+}
+.movie_detail_info p{
+  line-height: 1.3;
+  font-size: 14px;
+}
+
+.article_list{
+  width: 100%;
+}
+.article_item{
+  width: 49%;
+  float: left;
+  margin-right: 2%;
+  border: 1px solid #DCDCDC;
+}
+.article_item:nth-child(even){
+  margin-right: 0;
+}
+.article_item picture{
+  width: 35%;
+  float: left
+}
+.article_item .article_info{
+  width: 64%;
+  float: right;
 }
