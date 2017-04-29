@@ -22,14 +22,15 @@
 
 <h2>最近の投稿</h2>
 <div class="article_list clearfix">
-<% @articles.each do |movie| %>
+<% @articles.each do |article| %>
 <div class="article_item clearfix">
   <picture>
-    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= movie.poster_url %>" alt="">
+    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
   </picture>
   <div class="article_info">
-    <h3><%= movie.article_title %></h3>
-    <%= link_to "読む", article_path(movie.id), :class => 'btn btn-default' %>
+    <h3><%= article.article_title %></h3>
+    <%= render 'user_articles/stock_button', article: article %>
+    <%= link_to "読む", article_path(article.id), :class => 'btn btn-default' %>
   </div>
 </div>
 <% end %>

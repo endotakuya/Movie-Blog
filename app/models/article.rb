@@ -8,5 +8,8 @@ class Article < ApplicationRecord
   validates :content, presence: true
   validates :release_date, presence: true
   validates :user_id, presence: true
+
+  has_many :user_articles, class_name: 'UserArticle'
+  has_many :users, through: :user_articles
   
 end

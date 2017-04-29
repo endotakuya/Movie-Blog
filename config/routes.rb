@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   
   resources :movies, only: [:index, :show]
   resources :articles, only: [:show, :new, :create]
+
+  resources :user_articles, only: [:create, :destroy]
+
 end
