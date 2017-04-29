@@ -6,7 +6,6 @@ class ArticlesController < ApplicationController
   
   def new
     @article = Article.new({ :movie_title => params['title'], :movie_id => params['id'], :poster_url => params['poster_path'] })
-    p @article
   end
 
   def create
@@ -19,6 +18,7 @@ class ArticlesController < ApplicationController
       flash.now[:danger] = '記事が投稿されませんでした'
       render :new
     end
+
   end
   
   private

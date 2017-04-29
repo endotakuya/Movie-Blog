@@ -10,8 +10,7 @@ class MoviesController < ApplicationController
       search = Tmdb::Search.new
       search.resource('movie')
       search.query(@query)
-      @movies = search.fetch 
-      p @movies # ログ用
+      @movies = search.fetch
     end
     
   end
