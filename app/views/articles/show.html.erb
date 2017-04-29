@@ -1,2 +1,23 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="movie_detail clearfix">
+  <picture>
+    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @article['poster_url'] %>" alt="">
+  </picture>
+  <div class="movie_detail_info">
+    <h3 class="movie_detail_title"><%= @article[:movie_title] %></h3>
+    <p><%= @movie_overview %></p>
+  </div>
+</div>
+
+<h2 class=""><%= @article[:article_title] %></h2>
+<dl class="dl-horizontal">
+  <dt>公開日</dt>
+  <dd><%= @article[:release_date] %></dd>
+  <dt>監督名</dt>
+  <dd><%= @article[:director] %></dd>
+  <dt>出演者</dt>
+  <dd><%= @article[:performer] %></dd>
+</dl>
+
+<p>
+  <%= @article[:content] %>
+</p>

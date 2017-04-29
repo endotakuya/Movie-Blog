@@ -2,6 +2,11 @@ class ArticlesController < ApplicationController
   before_action :require_user_logged_in
   
   def show
+    @article = Article.find(params[:id])
+
+    access_tmdb
+    @movie_overview = Tmdb::Movie.detail(@article[:movie_id])['overview']
+
   end
   
   def new

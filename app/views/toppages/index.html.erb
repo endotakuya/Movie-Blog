@@ -29,6 +29,7 @@
   </picture>
   <div class="article_info">
     <h3><%= movie.article_title %></h3>
+    <%= link_to "読む", article_path(movie.id), :class => 'btn btn-default' %>
   </div>
 </div>
 <% end %>

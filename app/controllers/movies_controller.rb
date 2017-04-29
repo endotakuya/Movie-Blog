@@ -20,10 +20,4 @@ class MoviesController < ApplicationController
     @movie = Tmdb::Movie.detail(params[:id])
   end
   
-  private
-  def access_tmdb
-    Tmdb::Api.key(ENV['MOVIEDB_API_KEY'])
-    Tmdb::Api.language("ja")
-  end
-  
 end
