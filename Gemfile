@@ -57,3 +57,7 @@ gem 'dotenv-rails'
 gem 'themoviedb'
 # PVカウント
 gem 'impressionist', git: 'https://github.com/charlotte-ruby/impressionist.git'
+
+group :production do
+  gem 'pg'
+end
