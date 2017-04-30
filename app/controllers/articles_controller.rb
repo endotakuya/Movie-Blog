@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     access_tmdb
-    @movie_overview = Tmdb::Movie.detail(@article[:movie_id])['overview']
+    @movie = Tmdb::Movie.detail(@article[:movie_id])
 
   end
   

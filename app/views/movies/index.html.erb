@@ -1,4 +1,6 @@
-<h1>「<%= @query %>」の検索結果</h1>
+<div class="page-header">
+  <h1>「<%= @query %>」の検索結果</h1>
+</div>
 
 <div class="movies clearfix">
 <% if @movies.present? %>
@@ -9,8 +11,17 @@
       <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= movie['poster_path'] %>" alt="">
     </picture>
     <div class="movie_item_info">
-        <h2><%= link_to movie['title'], movie_path( movie['id']) %></h2>
-        <p><%= movie['overview']%></p>
+      <h2><%= link_to movie['title'].truncate(22), movie_path( movie['id']) %></h2>
+      <dl>
+        <dt>公開日</dt>
+        <dd><%= movie['release_date'] %></dd>
+        <dt>概要</dt>
+        <% if movie['overview'].present? %>
+          <dd><%= movie['overview'].truncate(100) %></dd>
+        <% else %>
+          <dd>なし</dd>
+        <% end %>
+      </dl>
     </div>
   </div>
   

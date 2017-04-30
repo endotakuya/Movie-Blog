@@ -1,4 +1,6 @@
-<h1>ストックランキング</h1>
+<div class="page-header">
+  <h1>ストック数ランキング</h1>
+</div>
 <% if @articles.present? %>
     <div class="row">
       <% @articles.each_with_index do |article, index| %>
@@ -9,7 +11,7 @@
                   <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
                 </div>
                 <div class="panel-body">
-                  <p class="item-title"><%= link_to article.article_title, article %></p>
+                  <p class="item-title"><%= link_to article.article_title.truncate(18), article %></p>
                 </div>
                 <div class="panel-footer">
                   <p class="text-center"><%= index+1 %>位: <%= @ranking_stock_counts[article.id] %> ストック</p>

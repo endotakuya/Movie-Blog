@@ -1,12 +1,23 @@
-<div class="movie_detail clearfix">
-  <picture>
-    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @article['poster_url'] %>" alt="">
-  </picture>
-  <div class="movie_detail_info">
-    <h3 class="movie_detail_title"><%= @article[:movie_title] %></h3>
-    <p><%= @movie_overview %></p>
-  </div>
-</div>
+<% content_for :cover do %>
+
+    <div class="movie_detail ">
+      <div class="movie_detail_inner clearfix">
+        <h1><%= @article[:movie_title] %></h1>
+        <picture>
+          <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @article[:poster_url] %>" alt="">
+        </picture>
+        <div class="movie_detail_info">
+          <% if @movie['overview'].present? %>
+              <p><%= @movie['overview'] %></p>
+          <% else %>
+              <p>概要はありません</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+<% end %>
+
 
 <h2 class=""><%= @article[:article_title] %></h2>
 <dl class="dl-horizontal">
