@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :require_user_logged_in
-  
+  impressionist actions: [:show]
+
   def show
     @article = Article.find(params[:id])
 

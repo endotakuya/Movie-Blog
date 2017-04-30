@@ -55,4 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails'
 # The Movie DB
 gem 'themoviedb'
-
+# PVカウント
+gem 'impressionist', git: 'https://github.com/charlotte-ruby/impressionist.git'

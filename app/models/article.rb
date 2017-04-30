@@ -11,5 +11,7 @@ class Article < ApplicationRecord
 
   has_many :user_articles, class_name: 'UserArticle'
   has_many :users, through: :user_articles
-  
+
+  is_impressionable
+
 end

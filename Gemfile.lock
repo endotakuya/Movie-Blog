@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/charlotte-ruby/impressionist.git
+  revision: 800c24ec6491724c11b7b59fcd799bc6aae1bd49
+  specs:
+    impressionist (1.5.2)
+      nokogiri (~> 1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -168,6 +175,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   dotenv-rails
+  impressionist!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
