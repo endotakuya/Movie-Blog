@@ -181,3 +181,45 @@ footer {
 .navbar {
     margin-bottom: 0 !important;
 }
+
+.profile{
+    margin-top: 20px;
+}
+
+.mypage_article_item{
+    width:100%;
+    margin-bottom: 20px;
+    border:1px solid #DCDCDC;
+    background: #FFF;
+    border-radius: 4px;
+}
+.mypage_article_item picture{
+    width: 150px;
+    float: left;
+}
+.mypage_article_item picture img{
+    max-width:100%;
+}
+.mypage_article_info{
+    width: calc(100% - 150px);
+    float: left;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+.mypage_article_item .article_movie_title{
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+}
+
+.mypage_article_item .article_user_name{
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+.mypage_article_rank{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}

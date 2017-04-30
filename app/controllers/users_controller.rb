@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show]
+  before_action :require_user_logged_in, only: [:show, :stock]
   
   def show
-    @user = User.find(params[:id])
+    @articles = current_user.articles
+    @ranking_stock_counts = UserArticle.stock_ranking
   end
 
   def new
@@ -21,9 +22,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def stock
+    @articles = current_user.stocks
+    @ranking_stock_counts = UserArticle.stock_ranking
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
 end

@@ -1,8 +1,35 @@
-<div class="user-profile">
-  <div class="icon text-center">
-    <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
+<div class="profile">
+<div class="row">
+  <aside class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= current_user.name %></h3>
+      </div>
+      <div class="panel-body">
+        <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(current_user, { size: 500 }) %>" alt="">
+      </div>
+    </div>
+  </aside>
+  <div class="col-xs-8">
+      <% @articles.each do |article| %>
+
+          <div class="mypage_article_item clearfix">
+            <picture>
+              <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
+            </picture>
+            <div class="mypage_article_info">
+              <h3><%= link_to article.article_title.truncate(20), article %></h3>
+              <p><span class="label label-info"><%= @ranking_stock_counts[article.id] ||= 0 %> ストック</span>
+                <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>
+              <p class="article_movie_title">映画：<%= article.movie_title %></p>
+              <p class="article_user_name">投稿者：<%= article.user.name %></p>
+              <p class="article_content"><%= article.content.truncate(42) %></p>
+              <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
+            </div>
+          </div>
+
+      <% end %>
+
   </div>
-  <div class="name text-center">
-    <h1><%= @user.name %></h1>
-  </div>
+</div>
 </div>

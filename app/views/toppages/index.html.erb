@@ -24,19 +24,4 @@
   <h2>最近の投稿</h2>
 </div>
 
-<div class="article_list clearfix">
-<% @articles.each do |article| %>
-<div class="article_item clearfix">
-  <picture>
-    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
-  </picture>
-  <div class="article_info">
-    <h3><%= link_to article.article_title.truncate(28), article %></h3>
-    <p class="article_movie_title">映画：<%= article.movie_title %></p>
-    <p class="article_user_name">投稿者：<%= article.user.name %></p>
-    <p class="article_content"><%= article.content.truncate(50) %></p>
-    <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
-  </div>
-</div>
-<% end %>
-</div>
+<%= render 'articles/article_list', articles: @articles, ranking_stock_counts: @ranking_stock_counts %>
