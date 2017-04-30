@@ -18,17 +18,36 @@
 
 <% end %>
 
+<div class="show_article">
+  <h2 class="show_article_title"><%= @article[:article_title] %></h2>
+  <div class="show_article_table">
 
-<h2 class=""><%= @article[:article_title] %></h2>
-<dl class="dl-horizontal">
-  <dt>公開日</dt>
-  <dd><%= @article[:release_date] %></dd>
-  <dt>監督名</dt>
-  <dd><%= @article[:director] %></dd>
-  <dt>出演者</dt>
-  <dd><%= @article[:performer] %></dd>
-</dl>
+    <p><span class="label label-info"><%= @ranking_stock_counts[@article.id] ||= 0 %> ストック</span>
+      <span class="label label-success"><%= Impression.where(impressionable_id: @article.id).size ||= 0 %> PV</span></p>
 
-<p>
-  <%= @article[:content] %>
-</p>
+    <table>
+      <tbody>
+      <tr>
+        <th>公開日</th>
+        <td>：</td>
+        <td><%= @article[:release_date] %></td>
+      </tr>
+      <tr>
+        <th>監督名</th>
+        <td>：</td>
+        <td><%= @article[:director] %></td>
+      </tr>
+      <tr>
+        <th>出演者</th>
+        <td>：</td>
+        <td><%= @article[:performer] %></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="show_article_content">
+    <%= @article[:content] %>
+  </p>
+
+</div>

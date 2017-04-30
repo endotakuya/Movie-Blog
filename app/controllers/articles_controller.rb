@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
     access_tmdb
     @movie = Tmdb::Movie.detail(@article[:movie_id])
 
+    @ranking_stock_counts = UserArticle.stock_ranking
   end
   
   def new
