@@ -14,10 +14,10 @@
       <% @articles.each do |article| %>
 
           <div class="mypage_article_item clearfix">
-            <picture>
+            <div class="mypage_article_item_img">
               <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
-            </picture>
-            <div class="mypage_article_info">
+            </div>
+            <div class="mypage_article_info clearfix">
               <h3><%= link_to article.article_title.truncate(20), article %></h3>
               <p><span class="label label-info"><%= @ranking_stock_counts[article.id] ||= 0 %> ストック</span>
                 <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>

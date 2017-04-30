@@ -153,7 +153,7 @@ footer {
     margin-right: 0;
 }
 
-.article_item picture {
+.article_item .article_item_img {
     width: 185px;
     float: left
 }
@@ -194,12 +194,12 @@ footer {
     border-radius: 4px;
 }
 
-.mypage_article_item picture {
+.mypage_article_item .mypage_article_item_img {
     width: 150px;
     float: left;
 }
 
-.mypage_article_item picture img {
+.mypage_article_item mypage_article_item_img img {
     max-width: 100%;
 }
 
@@ -299,6 +299,37 @@ footer {
         width: 100%;
         float: none;
     }
+
+    .cover .cover-inner .cover-contents h1{
+        font-size: 32px;
+    }
+
+    .article_item .article_item_img{
+        width:100%;
+        text-align: center;
+        float: none;
+        background: #000;
+    }
+
+    .article_item .article_info {
+        width: 100%;
+        float: none;
+        padding-bottom: 10px;
+    }
+
+    .mypage_article_item .mypage_article_item_img {
+        width: 100%;
+        float: none;
+        text-align: center;
+        background: #000;
+    }
+
+    .mypage_article_item .mypage_article_info{
+        width: 100%;
+        float: none;
+        padding-bottom: 10px;
+    }
+
 }
 
 @media only screen and (min-width:691px) and (max-width:1199px) {
