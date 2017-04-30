@@ -61,7 +61,7 @@ footer {
     border: 1px solid #DCDCDC;
 }
 
-.movie_item picture {
+.movie_item .movie_item_img {
     width: 185px;
     float: left;
 }
@@ -275,4 +275,39 @@ footer {
 
 .contens{
     margin-top: 20px;
+}
+
+@media only screen and (max-width: 690px) {
+    .article_item{
+        width:100%;
+        float: none;
+    }
+
+    .movie_item{
+        width:100%;
+        float: none;
+    }
+
+    .movie_item .movie_item_img {
+        width: 100%;
+        float: none;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .movie_item .movie_item_info {
+        width: 100%;
+        float: none;
+    }
+}
+
+@media only screen and (min-width:691px) and (max-width:1199px) {
+    .article_item{
+        width:100%;
+        float: none;
+    }
+    .movie_item{
+        width:100%;
+        float: none;
+    }
 }
