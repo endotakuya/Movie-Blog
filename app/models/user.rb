@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :articles
-  has_many :user_articles
+  has_many :user_articles, class_name: 'UserArticle'
   has_many :stocks, through: :user_articles, source: :article
 
   def stock(article)

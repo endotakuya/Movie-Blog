@@ -4,7 +4,7 @@
         <div class="cover-contents">
           <h1>映画をもっと近くに</h1>
           <% unless logged_in? %>
-              <a href="" class="btn btn-success btn-lg">Movie Blogを始める</a>
+              <%= link_to 'Movie Blogを始める', signup_path, class: '"btn btn-success btn-lg' %>
           <% else %>
               <%= form_tag(movies_path, :method => :get) do %>
                   <div class="form-group">
@@ -20,8 +20,9 @@
     </div>
 <% end %>
 
-<div class="page-header">
-  <h2>最近の投稿</h2>
-</div>
-
-<%= render 'articles/article_list', articles: @articles, ranking_stock_counts: @ranking_stock_counts %>
+<% if logged_in? %>
+    <div class="page-header">
+      <h2>最近の投稿</h2>
+    </div>
+    <%= render 'articles/article_list', articles: @articles, ranking_stock_counts: @ranking_stock_counts %>
+<% end %>
