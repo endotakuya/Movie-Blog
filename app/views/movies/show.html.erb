@@ -2,9 +2,9 @@
     <div class="movie_detail ">
       <div class="movie_detail_inner clearfix">
         <h1><%= @movie['title'] %></h1>
-        <picture>
+        <div class="movie_detail_img">
           <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @movie['poster_path'] %>" alt="">
-        </picture>
+        </div>
         <div class="movie_detail_info">
           <% if @movie['overview'].present? %>
               <p><%= @movie['overview'] %></p>
@@ -24,12 +24,12 @@
     <div class="article_list clearfix">
       <% @articles.each do |article| %>
           <div class="article_item clearfix">
-            <picture>
+            <div class="article_item_img">
               <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
-            </picture>
-            <div class="article_info">
+            </div>
+            <div class="article_info clearfix">
               <h3><%= link_to article.article_title, article %></h3>
-              <%= render 'user_articles/stock_button', article: article %>
+              <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
             </div>
           </div>
       <% end %>

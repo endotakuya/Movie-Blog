@@ -106,7 +106,7 @@ footer {
     padding: 0 15px;
 }
 
-.movie_detail picture {
+.movie_detail .movie_detail_img {
     float: left;
     width: 185px;
 }
@@ -330,6 +330,17 @@ footer {
         padding-bottom: 10px;
     }
 
+    .movie_detail .movie_detail_img {
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .movie_detail .movie_detail_info{
+        width:100%;
+        float: none;
+    }
 }
 
 @media only screen and (min-width:691px) and (max-width:1199px) {
