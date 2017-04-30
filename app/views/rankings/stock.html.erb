@@ -1,0 +1,22 @@
+<h1>ストックランキング</h1>
+<% if @articles.present? %>
+    <div class="row">
+      <% @articles.each_with_index do |article, index| %>
+          <div class="item">
+            <div class="col-md-3 col-sm-4 col-xs-12">
+              <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                  <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
+                </div>
+                <div class="panel-body">
+                  <p class="item-title"><%= link_to article.article_title, article %></p>
+                </div>
+                <div class="panel-footer">
+                  <p class="text-center"><%= index+1 %>位: <%= @ranking_stock_counts[article.id] %> ストック</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+<% end %>

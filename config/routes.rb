@@ -4,13 +4,16 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
+
   get 'signup', to: 'users#new'
+
+  get 'rankings/stock', to: 'rankings#stock'
+
   resources :users, only: [:show, :new, :create]
-  
   resources :movies, only: [:index, :show]
   resources :articles, only: [:show, :new, :create]
-
   resources :user_articles, only: [:create, :destroy]
+
+
 
 end
