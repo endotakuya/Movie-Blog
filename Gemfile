@@ -63,3 +63,4 @@ group :production do
 end
 # 検索キーワードの形態素解析
 gem 'natto'
+gem 'rb-readline'
