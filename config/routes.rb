@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
-  
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show]
   resources :articles, only: [:show, :new, :create]
   resources :user_articles, only: [:create, :destroy]
+  resources :rooms, only: [:show]
 
 end

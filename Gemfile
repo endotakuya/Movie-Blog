@@ -61,3 +61,6 @@ gem 'impressionist', git: 'https://github.com/charlotte-ruby/impressionist.git'
 group :production do
   gem 'pg'
 end
+# 検索キーワードの形態素解析
+gem 'natto'
+gem 'rb-readline'

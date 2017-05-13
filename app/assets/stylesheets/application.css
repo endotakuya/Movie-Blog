@@ -195,7 +195,7 @@ footer {
 }
 
 .mypage_article_item .mypage_article_item_img {
-    width: 150px;
+    width: 185px;
     float: left;
 }
 
@@ -204,7 +204,7 @@ footer {
 }
 
 .mypage_article_info {
-    width: calc(100% - 150px);
+    width: calc(100% - 185px);
     float: left;
     box-sizing: border-box;
     padding: 0 10px;
