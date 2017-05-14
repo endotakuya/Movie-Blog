@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def show
-    @chats = Chat.all
+    @room = params[:id]
+    @chats = Chat.all.where(channel_id: params[:id])
   end
 end

@@ -2,7 +2,7 @@ class ChatBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(chat)
-    ActionCable.server.broadcast 'hoge', message: render_chat(chat)
+    ActionCable.server.broadcast "#{chat.channel_id}", message: render_chat(chat)
   end
 
   private
