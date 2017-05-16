@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515042244) do
+ActiveRecord::Schema.define(version: 20170516010135) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "movie_title"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 20170515042244) do
     t.index ["user_id"], name: "index_user_articles_on_user_id"
   end
 
+  create_table "user_rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_rooms_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
@@ -84,4 +92,5 @@ ActiveRecord::Schema.define(version: 20170515042244) do
   add_foreign_key "messages", "users"
   add_foreign_key "user_articles", "articles"
   add_foreign_key "user_articles", "users"
+  add_foreign_key "user_rooms", "users"
 end
