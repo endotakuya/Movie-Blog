@@ -1,1 +1,10 @@
-<p><%= message.content %></p>
+<div class="message_box clearfix">
+
+  <% if current_user == message.user %>
+    <div class="message mine"><%= simple_format(h(message.content)) %></div>
+  <% else %>
+    <p class="message_user_name"><%= message.user.name %></p>
+    <div class="message"><%= simple_format(h(message.content)) %></div>
+  <% end %>
+
+</div>

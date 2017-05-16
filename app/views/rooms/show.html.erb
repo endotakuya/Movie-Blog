@@ -1,8 +1,14 @@
-<div id="messages", data-room_id="<%= @room_id %>">
-  <%= render @messages %>
+<div class="room_list">
+  ルームリスト
 </div>
 
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
+<div class="chat_timeline">
+  <div id="messages", data-room_id="<%= @room_id %>">
+    <%= render @messages %>
+  </div>
+
+  <div class="chat_textarea">
+    <form><textarea data-behavior="room_speaker"  wrap="soft"></textarea></form>
+  </div>
+
+</div>
