@@ -23,4 +23,6 @@ class User < ApplicationRecord
     self.stocks.include?(article)
   end
 
+  has_many :messages
+
 end

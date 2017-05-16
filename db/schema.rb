@@ -56,27 +56,10 @@ ActiveRecord::Schema.define(version: 20170515042244) do
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "content"
     t.bigint "user_id"
-    t.bigint "room_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "room_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_room_users_on_room_id"
-    t.index ["user_id", "room_id"], name: "index_room_users_on_user_id_and_room_id", unique: true
-    t.index ["user_id"], name: "index_room_users_on_user_id"
-  end
-
-  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "user_articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -98,10 +81,7 @@ ActiveRecord::Schema.define(version: 20170515042244) do
   end
 
   add_foreign_key "articles", "users"
-  add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "room_users", "rooms"
-  add_foreign_key "room_users", "users"
   add_foreign_key "user_articles", "articles"
   add_foreign_key "user_articles", "users"
 end

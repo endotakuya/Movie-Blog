@@ -1,4 +1,5 @@
 class RoomChannel < ApplicationCable::Channel
+
   def subscribed
     stream_from "#{params['room_id']}"
   end
@@ -8,8 +9,8 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Chat.create! user_id: 1, channel_id: params['room_id'], context: data['message']
-
+    p current_user
+    Message.create! user_id: current_user.id, room_id: params['room_id'], content: data['message']
   end
 
 end
