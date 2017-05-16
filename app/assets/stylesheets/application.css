@@ -301,6 +301,44 @@ body{ padding-top: 50px; }
   box-sizing: border-box;
   border-right: 1px solid rgba(0, 0, 0, .20);
 }
+.room_list ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.room_list ul li{
+    border-bottom: 1px solid rgba(0, 0, 0, .20);
+}
+.room_list ul li a{
+    padding: 20px 20px;
+    display: block;
+    color: #888;
+    overflow: hidden;
+}
+.room_list ul li a:hover{
+    background-color: rgba(0, 0, 0, .05);
+    text-decoration: none;
+}
+.room_list ul li.room_list_title{
+    height: 55px;
+    border-bottom: 1px solid rgba(0, 0, 0, .20);
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1;
+    padding-top: 20px;
+}
+.room_title{
+    width:100%;
+    margin: 0;
+    line-height:1;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, .20);
+    height: 55px;
+}
 .chat_timeline{
   width: calc(100% - 360px);
   float: right;
@@ -311,7 +349,7 @@ body{ padding-top: 50px; }
 .chat_timeline #messages{
   width: 100%;
   padding: 10px 15px 15px;
-  height: calc(100% - 100px);
+  height: calc(100% - (100px + 55px));  /*textareaとtitleの高さ*/
   overflow-y: scroll;
 }
 .chat_textarea{
@@ -351,13 +389,13 @@ body{ padding-top: 50px; }
   float: left;
 }
 .message.mine{
-  margin-top: 30px;
+  margin-top: 20px;
   float: right;
   background-color: #0084ff;
   color: #FFF;
 }
 .message_user_name{
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 8px;
   line-height: 1;
   font-size: 12px;
