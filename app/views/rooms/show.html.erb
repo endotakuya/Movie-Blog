@@ -2,7 +2,15 @@
   <ul>
     <li class="room_list_title">チャット一覧</li>
     <% @join_rooms.each do |room_id, movie_title| %>
-      <li><%= link_to movie_title, room_path(room_id) %></li>
+      <li>
+        <%= link_to room_path(room_id), class: 'clearfix' do %>
+            <i class="fa fa-film fa-3x" aria-hidden="true"></i>
+            <div class="room_list_info">
+              <p class="room_list_name"><%= movie_title.truncate(20) %></p>
+              <p class="room_list_ago"><%= time_ago_in_words(Message.where(room_id: room_id).last.updated_at) + '前' %></p>
+            </div>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </div>

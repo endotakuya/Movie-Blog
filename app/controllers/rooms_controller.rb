@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
   def show
     # RoomID を 映画ID と紐付け
     @room_id = params[:id]
+    current_user.join_room(@room_id)
 
     # 現在のRoom内メッセージを取得
     @messages = Message.all.where(room_id: @room_id)

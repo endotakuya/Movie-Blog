@@ -328,6 +328,25 @@ body{ padding-top: 50px; }
     line-height: 1;
     padding-top: 20px;
 }
+.room_list ul li a i{
+    width: 45px;
+    margin-right: 20px;
+    float: left;
+}
+.room_list ul li a .room_list_info{
+    width: calc(100% - 45px - 20px);
+    float: right;
+}
+.room_list ul li a .room_list_info .room_list_name{
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 5px;
+}
+.room_list ul li a .room_list_info .room_list_ago{
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+}
 .room_title{
     width:100%;
     margin: 0;
