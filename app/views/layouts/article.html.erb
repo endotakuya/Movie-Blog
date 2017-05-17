@@ -8,28 +8,40 @@
     <title>MoviLog</title>
     <%= csrf_meta_tags %>
 
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- 共通CSS -->
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- アラート用 -->
     <%= stylesheet_link_tag  'sweetalert/sweetalert', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Markdown Editor -->
+    <%= stylesheet_link_tag  'simplemde/simplemde.min', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <!-- 共通のJS -->
+    <!-- 共通JS -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Markdown Editor -->
+    <%= javascript_include_tag 'simplemde/simplemde.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'editor', 'data-turbolinks-track': 'reload' %>
     <!-- アラート用 -->
     <%= javascript_include_tag 'sweetalert/sweetalert.min', 'data-turbolinks-track': 'reload' %>
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/edffc0f230.js"></script>
+
   </head>
 
+  <!-- <body class="fit_height" style="overflow: hidden;"> -->
   <body>
     <%= render 'layouts/navbar' %>
-
     <%= yield :cover %>
 
-    <div class="container contens">
+    <div id="article_warpper">
       <%= render 'sweetify/alert' %>
       <%= yield %>
     </div>
 
     <%= render 'layouts/footer' %>
+
   </body>
 </html>

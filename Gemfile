@@ -63,7 +63,10 @@ gem 'dotenv-rails'
 gem 'themoviedb'
 # PVカウント
 gem 'impressionist', git: 'https://github.com/charlotte-ruby/impressionist.git'
-
 # 検索キーワードの形態素解析
 gem 'natto'
 gem 'rb-readline'
+# flashのカスタマイズ
+gem 'sweetify'
+# Markdown Parser
+gem 'redcarpet'
