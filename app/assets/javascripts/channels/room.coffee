@@ -1,18 +1,34 @@
-App.room = App.cable.subscriptions.create "RoomChannel",
-  connected: ->
-    # Called when the subscription is ready for use on the server
+jQuery(document).on 'turbolinks:load', ->
 
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
+  _messages = $('#messages')
+  scroll_to_messages _messages
 
-  received: (data) ->
-    $('#messages').append data['message']
+  App.room = App.cable.subscriptions.create channel: "RoomChannel", room_id: _messages.data('room_id'),
 
-  speak: (message) ->
-    @perform 'speak', content: message
+    connected: ->
+      # Called when the subscription is ready for use on the server
 
-$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
-  if event.keyCode is 13 # return = send
-    App.room.speak event.target.value
-    event.target.value = ''
-    event.preventDefault()
+    disconnected: ->
+      # Called when the subscription has been terminated by the server
+
+    received: (data) ->
+      _messages.append data['message']
+      scroll_to_messages _messages
+
+    speak: (message) ->
+      @perform 'speak', message: message
+
+
+# Commnd or Ctrl + Enter で送信
+$(window).keydown (e) ->
+    if e.metaKey or e.ctrlKey
+      if e.keyCode is 13
+        if e.target.value
+          App.room.speak e.target.value
+        e.target.value = ''
+        e.preventDefault()
+
+
+# ページ表示時に最新の投稿を表示
+scroll_to_messages = (message) ->
+  message.animate({ scrollTop: message[0].scrollHeight}, 0);

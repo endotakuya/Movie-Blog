@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :articles
   has_many :user_articles, class_name: 'UserArticle'
   has_many :stocks, through: :user_articles, source: :article
+  has_many :messages
+  has_many :user_rooms
 
   def stock(article)
     self.user_articles.find_or_create_by(article_id: article.id)
@@ -21,6 +23,10 @@ class User < ApplicationRecord
 
   def stock?(article)
     self.stocks.include?(article)
+  end
+
+  def join_room(room_id)
+    self.user_rooms.find_or_create_by(room_id: room_id)
   end
 
 end

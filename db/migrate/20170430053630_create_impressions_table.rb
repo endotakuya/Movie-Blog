@@ -1,5 +1,5 @@
-class CreateImpressionsTable < ActiveRecord::Migration
-  def self.up
+class CreateImpressionsTable < ActiveRecord::Migration[5.1]
+  def change
     create_table :impressions, :force => true do |t|
       t.string :impressionable_type
       t.integer :impressionable_id
@@ -26,7 +26,4 @@ class CreateImpressionsTable < ActiveRecord::Migration
     add_index :impressions, :user_id
   end
 
-  def self.down
-    drop_table :impressions
-  end
 end
