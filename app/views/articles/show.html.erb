@@ -47,7 +47,7 @@
   </div>
 
   <p class="show_article_content">
-    <%= @article[:content] %>
+    <%= markdown(@article[:content]).html_safe %>
   </p>
 
 </div>

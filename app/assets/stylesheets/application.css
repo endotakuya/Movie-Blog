@@ -1,5 +1,13 @@
 @charset "utf-8";
 
+/* Style Overwrite */
+.navbar-fixed-top{
+  z-index: 8!important;
+}
+.editor-toolbar.fullscreen{
+  z-index: 30!important;
+}
+
 /* body */
 body {
   background: #f2f2f2;
@@ -421,6 +429,60 @@ body{ padding-top: 50px; }
   color: #777;
 }
 
+
+/* Article */
+/* ---------------------------------------------------------- */
+#article_warpper{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#article_new_contents{
+  margin: 30px auto 0;
+}
+#article_new_contents .CodeMirror {
+	height: 435px;
+}
+.article_edit_title{
+  width: 100%;
+  margin-bottom: 15px;
+}
+.article_edit_title input[type="text"]{
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 12px 12px;
+  font-size: 18px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.article_edit_content textarea{
+  width: 100%;
+}
+.article_form_box{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.article_form_box .article_form_left{
+  width: 72%;
+  float: left;
+}
+.article_form_box .article_form_right{
+  width: 26%;
+  float: right;
+}
+.article_form_box .article_form_box{
+  margin-bottom: 20px;
+}
 
 /* Smartphone */
 /* ---------------------------------------------------------- */

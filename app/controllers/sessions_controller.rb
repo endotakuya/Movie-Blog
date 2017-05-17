@@ -6,20 +6,20 @@ class SessionsController < ApplicationController
     email = params[:session][:email].downcase
     password = params[:session][:password]
     if login(email, password)
-      flash[:success] = 'ログインに成功しました。'
+      sweetalert_success('', 'ログインしました', timer: 2000 )
       redirect_to @user
     else
-      flash.now[:danger] = 'ログインに失敗しました。'
+      sweetalert_error('メールアドレスまたはパスワードが間違っています','ログインに失敗しました。', persistent: 'OK')
       render 'new'
     end
   end
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = 'ログアウトしました。'
+    sweetalert_info('', 'ログアウトしました')
     redirect_to root_path
   end
-  
+
   private
 
   def login(email, password)

@@ -136,6 +136,7 @@ GEM
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
     rb-readline (0.5.4)
+    redcarpet (3.4.0)
     ruby_dep (1.5.0)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -156,6 +157,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sweetify (1.0.0)
+      actionpack
     themoviedb (1.0.1)
       httparty
     thor (0.19.4)
@@ -198,9 +201,11 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.1.1)
   rb-readline
+  redcarpet
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sweetify
   themoviedb
   turbolinks (~> 5)
   tzinfo-data
