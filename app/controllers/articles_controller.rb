@@ -30,6 +30,22 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      sweetalert_success('', '更新しました', timer: 2000 )
+      redirect_to @article
+    else
+      sweetalert_error('記入漏れがないか、確認してください','更新できませんでした', persistent: 'OK')
+      render :edit
+    end
+  end
+
   private
   def article_params
     params.require(:article).permit(:user_id, :movie_title, :article_title, :director, :performer, :content, :release_date, :movie_id, :poster_url )

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :movies, only: [:index, :show]
-  resources :articles, only: [:show, :new, :create]
+  resources :articles
   resources :user_articles, only: [:create, :destroy]
   resources :rooms, only: [:show]
 

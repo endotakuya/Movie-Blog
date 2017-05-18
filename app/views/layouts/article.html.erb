@@ -19,9 +19,6 @@
 
     <!-- 共通JS -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- Markdown Editor -->
-    <%= javascript_include_tag 'simplemde/simplemde.min', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'editor', 'data-turbolinks-track': 'reload' %>
     <!-- アラート用 -->
     <%= javascript_include_tag 'sweetalert/sweetalert.min', 'data-turbolinks-track': 'reload' %>
     <!-- Bootstrap -->
@@ -42,6 +39,9 @@
     </div>
 
     <%= render 'layouts/footer' %>
+    <!-- Markdown Editor -->
+    <%= javascript_include_tag 'simplemde/simplemde.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'editor', 'data-turbolinks-track': 'reload' %>
 
   </body>
 </html>

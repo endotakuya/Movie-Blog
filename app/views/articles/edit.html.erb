@@ -1,0 +1,43 @@
+<div id="article_new_contents">
+<%= form_for(@article, html: { class: 'form-horizontal'}) do |f| %>
+
+  <div class="article_form_box clearfix">
+    <div class="article_form_right">
+      <div class="article_form_box">
+        <label>公開日：</label>
+        <div class="article_form_input">
+          <%= f.text_field :release_date, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="article_form_box">
+        <label>監督名：</label>
+        <div class="article_form_input">
+          <%= f.text_field :director, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="article_form_box">
+        <label>出演者：</label>
+        <div class="article_form_input">
+          <%= f.text_field :performer, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="article_form_left">
+      <div class="article_edit_title">
+        <%= f.text_field :article_title, class: 'form-control', placeholder: 'タイトル' %>
+      </div>
+      <div class="article_edit_content">
+        <%= f.text_area :content, id: 'simple-editor', class: 'form-control', rows: 10, placeholder: "『#{@article.movie_title}』は、いかがでしたか？" %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.hidden_field :movie_title, value: @article.movie_title %>
+  <%= f.hidden_field :user_id, value: current_user.id   %>
+  <%= f.hidden_field :movie_id, value:  @article.movie_id   %>
+  <%= f.hidden_field :poster_url, value:  @article.poster_url   %>
+
+  <%= f.submit '編集する', class: 'btn btn-primary center-block' %>
+
+<% end %>
+</div>

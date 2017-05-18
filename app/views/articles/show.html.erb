@@ -50,4 +50,8 @@
     <%= markdown(@article[:content]).html_safe %>
   </p>
 
+  <% if current_user.id == @article.user_id %>
+    <p><%= link_to '編集する', edit_article_path(@article.id) %>
+  <% end %>
+
 </div>
