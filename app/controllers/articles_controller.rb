@@ -46,6 +46,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    sweetalert_info('', '投稿を削除しました', timer: 2000 )
+    redirect_to root_url
+  end
+
   private
   def article_params
     params.require(:article).permit(:user_id, :movie_title, :article_title, :director, :performer, :content, :release_date, :movie_id, :poster_url )
