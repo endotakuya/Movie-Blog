@@ -16,8 +16,9 @@ class ArticlesController < ApplicationController
     # ストック数をカウント
     @ranking_stock_counts = UserArticle.stock_ranking
 
+    # JSで値を使えるように
     gon.point_list = [ @article.point_1, @article.point_2, @article.point_3, @article.point_4, @article.point_5]
-    
+
   end
 
   def new
@@ -38,6 +39,9 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+
+    # JSで値を使えるように
+    gon.point_list = [ @article.point_1, @article.point_2, @article.point_3, @article.point_4, @article.point_5]
   end
 
   def update
