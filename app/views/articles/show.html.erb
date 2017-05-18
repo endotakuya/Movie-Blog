@@ -30,8 +30,7 @@
   </p>
 
   <% if current_user.id == @article.user_id %>
-    <p><%= link_to '編集する', edit_article_path(@article.id) %>
-    <p><%= link_to '削除する', @article, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+    <p><%= link_to '編集する', edit_article_path(@article.id) %></p>
   <% end %>
 </div>
 

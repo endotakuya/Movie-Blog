@@ -68,7 +68,10 @@
   <%= f.hidden_field :movie_id, value:  @article.movie_id   %>
   <%= f.hidden_field :poster_url, value:  @article.poster_url   %>
 
-  <%= f.submit '編集する', class: 'btn btn-primary center-block' %>
+  <div class="text-center">
+    <%= f.submit '編集する', class: 'btn btn-primary' %>
+    <%= link_to '削除する', @article, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+  </div>
 
 <% end %>
 </div>
