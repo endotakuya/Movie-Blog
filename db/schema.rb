@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516010135) do
+ActiveRecord::Schema.define(version: 20170518060346) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "movie_title"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20170516010135) do
     t.datetime "updated_at", null: false
     t.string "movie_id"
     t.string "poster_url"
+    t.integer "point_1"
+    t.integer "point_2"
+    t.integer "point_3"
+    t.integer "point_4"
+    t.integer "point_5"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

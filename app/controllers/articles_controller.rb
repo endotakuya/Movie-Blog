@@ -6,12 +6,18 @@ class ArticlesController < ApplicationController
   include ArticlesHelper
 
   def show
+    # １記事のデータを取得
     @article = Article.find(params[:id])
 
+    # 映画情報取得
     access_tmdb
     @movie = Tmdb::Movie.detail(@article[:movie_id])
 
+    # ストック数をカウント
     @ranking_stock_counts = UserArticle.stock_ranking
+
+    gon.point_list = [ @article.point_1, @article.point_2, @article.point_3, @article.point_4, @article.point_5]
+    
   end
 
   def new
@@ -56,7 +62,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:user_id, :movie_title, :article_title, :director, :performer, :content, :release_date, :movie_id, :poster_url )
+    params.require(:article).permit(:user_id, :movie_title, :article_title, :director, :performer, :content, :release_date, :movie_id, :poster_url, :point_1, :point_2, :point_3, :point_4, :point_5  )
   end
 
 end

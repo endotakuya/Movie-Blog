@@ -70,3 +70,9 @@ gem 'rb-readline'
 gem 'sweetify'
 # Markdown Parser
 gem 'redcarpet'
+# ブログ投稿時の評価バーに使用
+gem 'jquery-ui-rails'
+# レーダーチャート表示用
+gem 'chart-js-rails'
+# コントローラとJSとやり取り
+gem "gon"

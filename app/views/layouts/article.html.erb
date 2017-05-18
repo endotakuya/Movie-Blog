@@ -7,6 +7,7 @@
 
     <title>MoviLog</title>
     <%= csrf_meta_tags %>
+    <%= include_gon %>
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,6 +26,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/edffc0f230.js"></script>
+    <!-- レーダーチャート -->
+    <%= javascript_include_tag 'radar-chart', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
@@ -33,7 +36,7 @@
     <%= render 'layouts/navbar' %>
     <%= yield :cover %>
 
-    <div id="article_warpper">
+    <div id="article_warpper" class="clearfix">
       <%= render 'sweetify/alert' %>
       <%= yield %>
     </div>
@@ -42,6 +45,8 @@
     <!-- Markdown Editor -->
     <%= javascript_include_tag 'simplemde/simplemde.min', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'editor', 'data-turbolinks-track': 'reload' %>
+    <!-- 評価入力のバー -->
+    <%= javascript_include_tag 'slider', 'data-turbolinks-track': 'reload' %>
 
   </body>
 </html>
