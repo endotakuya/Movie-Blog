@@ -6,11 +6,7 @@
       <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @article[:poster_url] %>" alt="">
     </div>
     <div class="movie_detail_info">
-      <% if @movie['overview'].present? %>
-          <p><%= @movie['overview'] %></p>
-      <% else %>
-          <p>概要はありません</p>
-      <% end %>
+      <p><%= @movie['overview'].present? ? @movie['overview'] : '概要はありません' %></p>
     </div>
   </div>
 </div>
