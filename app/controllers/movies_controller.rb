@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
-
+  before_action :require_user_logged_in
+  
   def index
     # 検索キーワード（主に映画タイトル）
     @query = params[:query]
