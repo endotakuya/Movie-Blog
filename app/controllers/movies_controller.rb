@@ -29,6 +29,7 @@ class MoviesController < ApplicationController
   end
 
   private
+  # キーワードにマッチする映画を全取得
   def saerch_movies(query)
     search = Tmdb::Search.new
     search.resource('movie')
@@ -36,14 +37,11 @@ class MoviesController < ApplicationController
     search.fetch
   end
 
+  # キーワードの形態素解析
   def morphological_analysis(query)
     nm = Natto::MeCab.new
     query_array = []
-    nm.parse(@query) do |n|
-      puts "#{n.surface}\tpart-of-speech id: #{n.posid}" if !n.is_eos?
-      query_array.push(n.surface) unless n.posid == 4
-    end
-
+    nm.parse(@query) { |n| query_array.push(n.surface) unless n.posid == 4 }
     query_array.pop
     query_array.join(' ')
   end
