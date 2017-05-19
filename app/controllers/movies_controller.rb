@@ -1,19 +1,22 @@
 class MoviesController < ApplicationController
 
   def index
+    # 検索キーワード（主に映画タイトル）
     @query = params[:query]
-
-    if @query.nil?
-      @movies = []
-    else
+    # 中身がカラか、そもそも存在しないか
+    unless @query.blank?
       access_tmdb
       @movies = saerch_movies(@query)
+      # 検索キーワードが該当しなかった場合、
+      # 形態素解析をして単語に分割し、再検索
       unless @movies.present?
         query = morphological_analysis(@query)
         @movies = saerch_movies(query)
       end
+    else
+      # キーワードがなにもないときは前のページへリダイレクト
+      redirect_back(fallback_location: root_path)
     end
-
   end
 
   def show
