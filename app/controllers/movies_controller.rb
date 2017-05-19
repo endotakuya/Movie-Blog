@@ -20,9 +20,12 @@ class MoviesController < ApplicationController
   end
 
   def show
+    movie_id = params[:id]
     access_tmdb
-    @movie = Tmdb::Movie.detail(params[:id]).to_hash
-    @articles = Article.where(movie_id: @movie['id'])
+    # 映画の詳細情報を取得
+    @movie = Tmdb::Movie.detail(movie_id).to_hash
+    # この映画に関連する記事を取得
+    @articles = Article.where(movie_id: movie_id)
   end
 
   private
