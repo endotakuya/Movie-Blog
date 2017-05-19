@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :require_user_logged_in
+  before_action :require_user_logged_in, except: :show
   impressionist actions: [:show]
 
   layout 'article'
@@ -8,17 +8,13 @@ class ArticlesController < ApplicationController
   def show
     # １記事のデータを取得
     @article = Article.find(params[:id])
-
     # 映画情報取得
     access_tmdb
     @movie = Tmdb::Movie.detail(@article[:movie_id])
-
     # ストック数をカウント
     @ranking_stock_counts = UserArticle.stock_ranking
-
     # JSで値を使えるように
     gon.point_list = [ @article.point_1, @article.point_2, @article.point_3, @article.point_4, @article.point_5]
-
   end
 
   def new
