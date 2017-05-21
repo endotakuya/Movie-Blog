@@ -233,7 +233,7 @@ DEPENDENCIES
   rails (~> 5.1.1)
   rb-readline
   redcarpet
-  redis
+  redis (~> 3.0)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
