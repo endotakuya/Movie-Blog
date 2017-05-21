@@ -1,5 +1,6 @@
 <div class="article_list clearfix">
-  <% articles.each do |article| %>
+  <% unless articles.empty? %>
+    <% articles.each do |article| %>
       <div class="article_item clearfix">
         <div class="article_item_img">
           <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
@@ -14,5 +15,8 @@
           <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
         </div>
       </div>
+    <% end %>
+  <% else %>
+    <p>投稿がありません</p>
   <% end %>
 </div>
