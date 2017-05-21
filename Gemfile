@@ -77,3 +77,5 @@ gem 'jquery-ui-rails'
 gem 'chart-js-rails'
 # コントローラとJSとやり取り
 gem "gon"
+# チャット用
+gem 'redis'
