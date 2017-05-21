@@ -1,7 +1,7 @@
 <div class="message_box clearfix">
 
   <% if current_user == message.user %>
-    <div class="message mine"><%= simple_format(h(message.content)) %></div>
+    <div class="message mine"><%= simple_format(text_url_to_link(h(message.content))).html_safe %></div>
   <% else %>
     <p class="message_user_name"><%= message.user.name %></p>
     <div class="message"><%= simple_format(h(message.content)) %></div>
