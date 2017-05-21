@@ -1,21 +1,15 @@
 <% content_for :cover do %>
-
-    <div class="movie_detail ">
-      <div class="movie_detail_inner clearfix">
-        <h1><%= @article[:movie_title] %></h1>
-        <div class="movie_detail_img">
-          <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @article[:poster_url] %>" alt="">
-        </div>
-        <div class="movie_detail_info">
-          <% if @movie['overview'].present? %>
-              <p><%= @movie['overview'] %></p>
-          <% else %>
-              <p>概要はありません</p>
-          <% end %>
-        </div>
-      </div>
+<div class="movie_detail ">
+  <div class="movie_detail_inner clearfix">
+    <h1><%= @article[:movie_title] %></h1>
+    <div class="movie_detail_img">
+      <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @article[:poster_url] %>" alt="">
     </div>
-
+    <div class="movie_detail_info">
+      <p><%= @movie['overview'].present? ? @movie['overview'] : '概要はありません' %></p>
+    </div>
+  </div>
+</div>
 <% end %>
 
 <div class="show_article">
@@ -29,7 +23,8 @@
     <%= markdown(@article[:content]).html_safe %>
   </p>
 
-  <% if current_user.id == @article.user_id %>
+  <% # ログインをしていないユーザでも閲覧は可能 %>
+  <% if !current_user.blank? && current_user.id == @article.user_id %>
     <p><%= link_to '編集する', edit_article_path(@article.id) %></p>
   <% end %>
 </div>

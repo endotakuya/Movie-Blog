@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :user_articles, only: [:create, :destroy]
   resources :rooms, only: [:show]
 
+  get '*path', to: 'application#render_404'
 end

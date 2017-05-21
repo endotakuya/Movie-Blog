@@ -4,31 +4,29 @@
 
 <div class="movies clearfix">
 <% if @movies.present? %>
-<% @movies.each do |movie|%>
-
-  <div class="movie_item clearfix">
-    <div class="movie_item_img">
-      <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= movie['poster_path'] %>" alt="">
+  <% @movies.each do |movie|%>
+    <div class="movie_item clearfix">
+      <div class="movie_item_img">
+        <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= movie['poster_path'] %>" alt="">
+      </div>
+      <div class="movie_item_info">
+        <h2><%= link_to movie['title'].truncate(22), movie_path( movie['id']) %></h2>
+        <dl>
+          <dt>公開日</dt>
+          <dd><%= movie['release_date'] %></dd>
+          <dt>概要</dt>
+          <% if movie['overview'].present? %>
+            <dd><%= movie['overview'].truncate(100) %></dd>
+          <% else %>
+            <dd>なし</dd>
+          <% end %>
+        </dl>
+      </div>
     </div>
-    <div class="movie_item_info">
-      <h2><%= link_to movie['title'].truncate(22), movie_path( movie['id']) %></h2>
-      <dl>
-        <dt>公開日</dt>
-        <dd><%= movie['release_date'] %></dd>
-        <dt>概要</dt>
-        <% if movie['overview'].present? %>
-          <dd><%= movie['overview'].truncate(100) %></dd>
-        <% else %>
-          <dd>なし</dd>
-        <% end %>
-      </dl>
-    </div>
-  </div>
-
-<% end %>
+  <% end %>
 <% else %>
-<p>該当する映画は見つかりませんでした。<br />
-検索キーワードの表記を変更して、もう一度お探しください。<br >
-例：ハリーポッター　⇒　ハリー・ポッター</p>
+  <p>該当する映画は見つかりませんでした。<br />
+  検索キーワードの表記を変更して、もう一度お探しください。<br >
+  例：ハリーポッター　⇒　ハリー・ポッター</p>
 <% end %>
 </div>
