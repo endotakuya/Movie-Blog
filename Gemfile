@@ -60,7 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # env fileの管理
 gem 'dotenv-rails'
 # The Movie DB
-gem 'themoviedb'
+gem 'themoviedb', github: 'endotakuya/themoviedb', branch: 'hotfix-character-code'
 # PVカウント
 gem 'impressionist', git: 'https://github.com/charlotte-ruby/impressionist.git'
 # 検索キーワードの形態素解析
