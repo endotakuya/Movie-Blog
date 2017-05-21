@@ -5,6 +5,14 @@ GIT
     impressionist (1.5.2)
       nokogiri (~> 1)
 
+GIT
+  remote: https://github.com/endotakuya/themoviedb.git
+  revision: df9536f945a95fca6a11db6e677d463a19b93ae4
+  branch: hotfix-character-code
+  specs:
+    themoviedb (1.0.1)
+      httparty
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -78,7 +86,7 @@ GEM
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
-    httparty (0.15.2)
+    httparty (0.15.5)
       multi_xml (>= 0.5.2)
     i18n (0.8.1)
     jbuilder (2.6.4)
@@ -170,8 +178,6 @@ GEM
       sprockets (>= 3.0.0)
     sweetify (1.0.0)
       actionpack
-    themoviedb (1.0.1)
-      httparty
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
@@ -220,7 +226,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sweetify
-  themoviedb
+  themoviedb!
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
