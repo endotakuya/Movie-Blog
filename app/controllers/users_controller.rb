@@ -6,8 +6,6 @@ class UsersController < ApplicationController
     @user = User.find(user_id)
     @articles = @user.articles
     @ranking_stock_counts = UserArticle.stock_ranking
-
-    binding.pry
   end
 
   def new
