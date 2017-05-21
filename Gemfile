@@ -54,8 +54,6 @@ end
 
 group :production do
   gem 'pg'
-  # Heroku チャット用
-  gem 'redis'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:7407846f3da6c17de440011809b4fb2f@greeneye.redistogo.com:10668/
   channel_prefix: movie_blog_production
