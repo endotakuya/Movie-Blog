@@ -10,9 +10,11 @@
           <p><span class="label label-info"><%= ranking_stock_counts[article.id] ||= 0 %> ストック</span>
             <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>
           <p class="article_movie_title">映画：<%= article.movie_title %></p>
-          <p class="article_user_name">投稿者：<%= article.user.name %></p>
+          <p class="article_user_name">投稿者：<%= link_to article.user.name, user_path(article.user) %></p>
           <p class="article_content"><%= article.content.truncate(30) %></p>
-          <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
+          <% unless current_user == article.user %>
+            <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
+          <% end %>
         </div>
       </div>
     <% end %>

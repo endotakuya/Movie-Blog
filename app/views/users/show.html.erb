@@ -11,8 +11,8 @@
     </div>
   </aside>
   <div class="col-xs-12 col-sm-8">
+    <% unless @articles.empty? %>    
       <% @articles.each do |article| %>
-
           <div class="mypage_article_item clearfix">
             <div class="mypage_article_item_img">
               <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
@@ -24,12 +24,15 @@
               <p class="article_movie_title">映画：<%= article.movie_title %></p>
               <p class="article_user_name">投稿者：<%= article.user.name %></p>
               <p class="article_content"><%= article.content.truncate(42) %></p>
-              <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
+              <% unless current_user == article.user %>
+                <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
+              <% end %>
             </div>
           </div>
-
       <% end %>
-
+    <% else %>
+      <p>まだ記事を投稿していません</p>
+    <% end %>
   </div>
 </div>
 </div>
