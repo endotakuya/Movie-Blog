@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :stock]
   
   def show
-    @articles = current_user.articles
+    user_id = params[:id]
+    @user = User.find(user_id)
+    @articles = @user.articles
     @ranking_stock_counts = UserArticle.stock_ranking
   end
 
