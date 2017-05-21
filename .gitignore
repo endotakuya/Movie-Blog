@@ -17,4 +17,4 @@
 .byebug_history
 .env
 .idea/*
-vendor/bunder
+vendor/bundle
