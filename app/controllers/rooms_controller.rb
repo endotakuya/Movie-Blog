@@ -19,6 +19,9 @@ class RoomsController < ApplicationController
       @join_rooms[room_id] = join_movie_title(room_id)
     end
 
+    # メッセージ切り分け用
+    @user_id = current_user.id
+
   end
 
   private

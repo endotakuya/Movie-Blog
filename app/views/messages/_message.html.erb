@@ -1,8 +1,4 @@
-<div class="message_box clearfix">
-  <% if current_user == message.user %>
-    <div class="message mine"><%= message_escape(message.content) %></div>
-  <% else %>
+<div class="message_box clearfix user_id_<%= message.user.id %>">
     <p class="message_user_name"><%= message.user.name %></p>
     <div class="message"><%= message_escape(message.content) %></div>
-  <% end %>
 </div>
