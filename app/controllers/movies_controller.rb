@@ -14,8 +14,10 @@ class MoviesController < ApplicationController
         query = morphological_analysis(@query)
         @movies = saerch_movies(query)
       end
+
+      @movies = search_sort(@movies)
     else
-      # キーワードがなにもないときは前のページへリダイレクト
+    # キーワードがなにもないときは前のページへリダイレクト
       redirect_back(fallback_location: root_path)
     end
   end
@@ -45,6 +47,12 @@ class MoviesController < ApplicationController
     nm.parse(@query) { |n| query_array.push(n.surface) unless n.posid == 4 }
     query_array.pop
     query_array.join(' ')
+  end
+
+  # 検索結果を公開日順に表示
+  def search_sort(movies)
+    movies = movies.sort_by { |hash| hash['release_date'].to_i }
+    movies
   end
 
 end
