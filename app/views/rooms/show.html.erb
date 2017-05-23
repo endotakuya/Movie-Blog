@@ -24,6 +24,13 @@
   </div>
 
   <div class="chat_textarea">
-    <form><textarea data-behavior="room_speaker" wrap="soft" placeholder="メッセージを入力…"></textarea></form>
+    <div class="chat_post_box clearfix">
+      <div class="chat_post_box_left"></div>
+      <div class="chat_post_box_right">
+        <span class="text_length">400</span>
+        <button class="post_btn" >送信</button>
+      </div>
+    </div>
+    <form><textarea id="write" data-behavior="room_speaker" wrap="soft" placeholder="Cmd(Ctl) + Enter または、右上のボタンから送信"></textarea></form>
   </div>
 </div>
