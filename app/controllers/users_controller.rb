@@ -16,10 +16,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:success] = 'ユーザを登録しました。'
-      redirect_to @user
+      if login(@user.email, @user.password)
+        sweetalert_success('', 'ユーザを登録しました。', timer: 2000 )
+        redirect_to root_url
+      end
     else
-      flash.now[:danger] = 'ユーザの登録に失敗しました。'
+      sweetalert_error('もう一度記入してください','ユーザの登録に失敗しました。', persistent: 'OK')
       render :new
     end
   end
