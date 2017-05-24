@@ -2,6 +2,14 @@
 <%= form_for(@article, html: { class: 'form-horizontal'}) do |f| %>
 
   <div class="article_form_box clearfix">
+    <div class="article_form_left">
+      <div class="article_edit_title">
+        <%= f.text_field :article_title, class: 'form-control', placeholder: 'タイトル' %>
+      </div>
+      <div class="article_edit_content">
+        <%= f.text_area :content, id: 'simple-editor', class: 'form-control', rows: 10, placeholder: "『#{@article.movie_title}』は、いかがでしたか？" %>
+      </div>
+    </div>
     <div class="article_form_right">
       <h3 class="article_form_title">詳細情報を入れてみましょう</h3>
       <div class="article_form_box">
@@ -22,7 +30,6 @@
           <%= f.text_field :performer, class: 'form-control' %>
         </div>
       </div>
-
       <div class="article_form_slider">
         <h3 class="article_form_title">この映画を５要素で表すと</h3>
         <div class="article_slider_box">
@@ -50,15 +57,6 @@
           <div id="slider-05"></div>
           <%= f.hidden_field :point_5, class: 's-val-5', value: @article.point_5 %>
         </div>
-      </div>
-
-    </div>
-    <div class="article_form_left">
-      <div class="article_edit_title">
-        <%= f.text_field :article_title, class: 'form-control', placeholder: 'タイトル' %>
-      </div>
-      <div class="article_edit_content">
-        <%= f.text_area :content, id: 'simple-editor', class: 'form-control', rows: 10, placeholder: "『#{@article.movie_title}』は、いかがでしたか？" %>
       </div>
     </div>
   </div>

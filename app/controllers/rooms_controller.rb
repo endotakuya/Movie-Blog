@@ -15,8 +15,11 @@ class RoomsController < ApplicationController
 
     # 過去に入ったことのあるチャットと映画を紐付け
     @join_rooms = {}
+    @join_images = {}
     room_ids.each do |room_id|
-      @join_rooms[room_id] = join_movie_title(room_id)
+      movie = join_movie(room_id)
+      @join_rooms[room_id] = movie['title']
+      @join_images[room_id] = movie['poster_path']
     end
 
     # メッセージ切り分け用
@@ -25,10 +28,10 @@ class RoomsController < ApplicationController
   end
 
   private
-  def join_movie_title(room_id)
+  def join_movie(room_id)
     access_tmdb
     movie = Tmdb::Movie.detail(room_id)
-    movie['title']
+    movie
   end
   
 end
