@@ -8,7 +8,7 @@
         <div class="movie_detail_info">
           <p><%= @movie['overview'].present? ? @movie['overview'] : '概要はありません' %></p>
           <p>
-            <%= link_to 'この映画の記事を書く', new_article_path(@movie), class: 'btn btn-default pull-right' %>
+            <%= link_to 'この映画の記事を書く', new_article_path(@movie), class: 'btn btn-default pull-right', data: { turbolinks: false } %>
             <%= link_to 'この映画のチャットルーム', room_path(@movie['id']), class: 'btn btn-default pull-right' %>
           </p>
         </div>

@@ -740,6 +740,12 @@ body{ padding-top: 50px; }
     text-align: center;
     line-height: 55px;
   }
+  .room_title {
+    line-height: 55px;
+    padding-top: 0; 
+    text-align: center;
+    font-size: 100%;
+  }
 
 }
 
