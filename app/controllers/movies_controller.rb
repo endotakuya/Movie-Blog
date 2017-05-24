@@ -51,7 +51,7 @@ class MoviesController < ApplicationController
 
   # 検索結果を公開日順に表示
   def search_sort(movies)
-    movies = movies.sort_by { |hash| hash['release_date'].to_i }
+    movies = movies.sort_by { |hash| -hash['release_date'].to_i }
     movies
   end
 
