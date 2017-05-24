@@ -1,0 +1,9 @@
+<% if logged_in? %>
+    <div class="page-header">
+      <h2>すべての投稿</h2>
+    </div>
+    <%= render 'article_list', articles: @articles, ranking_stock_counts: @ranking_stock_counts %>
+
+    <%= paginate @articles %>
+
+<% end %>

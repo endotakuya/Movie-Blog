@@ -5,6 +5,11 @@ class ArticlesController < ApplicationController
   layout 'article'
   include ArticlesHelper
 
+  def index
+    @articles = Article.all.order("id DESC").page(params[:page]).per(30)
+    @ranking_stock_counts = UserArticle.stock_ranking
+  end
+
   def show
     # １記事のデータを取得
     movie_id = params[:id]

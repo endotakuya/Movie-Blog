@@ -593,6 +593,33 @@ body{ padding-top: 50px; }
   margin: 0 20px 15px;
 }
 
+
+/* pagenation */
+/* ---------------------------------------------------------- */
+.pagination{
+  width: 100%;
+  text-align: center;
+}
+.pagination span.current{
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #353535;
+    color: #FFF;
+}
+.pagination a{
+    display: inline-block;
+    padding: 6px 12px;
+    color: #353535;
+    background-color: #FFF;
+    transition: 0.3s;
+}
+.pagination a:hover{
+    background-color: #353535;
+    color: #FFF;
+    text-decoration: none;
+}
+
+
 /* Smartphone */
 /* ---------------------------------------------------------- */
 @media only screen and (max-width: 690px) {
