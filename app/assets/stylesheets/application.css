@@ -416,6 +416,7 @@ body{ padding-top: 50px; }
   padding: 10px 15px 15px;
   height: calc(100% - (100px + 55px + 42px));  /*textareaとtitleの高さ*/
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 .chat_textarea{
   width: 100%;
