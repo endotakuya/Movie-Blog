@@ -15,4 +15,7 @@
 //= require jquery-ui
 //= require turbolinks
 //= require Chart
+//= require jquery.remotipart
+//= require zeroclipboard
 // require_tree .
+

@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new({ :movie_title => params['title'], :movie_id => params['id'], :poster_url => params['poster_path'] })
+    @galleries = Gallery.where(movie_id: params['id'])
   end
 
   def create

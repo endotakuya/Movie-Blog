@@ -79,3 +79,10 @@ gem 'chart-js-rails'
 gem "gon"
 # ページネーション
 gem 'kaminari'
+# 画像のアップロード
+gem 'carrierwave'
+gem 'fog'
+# 複数データをインサート
+gem 'activerecord-import'
+gem 'remotipart', '~> 1.3.1'
+gem 'zeroclipboard-rails'

@@ -529,9 +529,10 @@ body{ padding-top: 50px; }
 }
 #article_new_contents{
   margin: 25px auto 0;
+  position: relative;
 }
 #article_new_contents .CodeMirror {
-	height: 475px;
+	height: 455px;
 }
 .article_edit_title{
   width: 100%;
@@ -604,6 +605,74 @@ body{ padding-top: 50px; }
 }
 .article_slider_box > div{
   margin: 0 20px 15px;
+}
+#upload_images {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 30px;
+  margin-bottom: 4px;
+}
+#upload_images li{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-right: 4px;
+  
+  cursor: pointer;
+  
+}
+#upload_images li a{
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+#upload_images li a.zeroclipboard-is-hover{ opacity: 0.7; }
+#upload_images li a input{
+  visibility: hidden;
+  width: 100%;
+}
+
+#upload_area{
+  width: 50%;
+  position: absolute;
+  bottom: 25px;
+  height: 60px;
+}
+#upload_area .upload_area_left{
+  width: 130px;
+  float: left;
+  margin-right: 15px;
+}
+#upload_area .upload_area_right{
+  width: calc(100% - (130px + 15px));
+  float: left;
+  
+}
+#upload_area #open-finder{
+  border-style: none;
+  background: #FFF;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  color: #333;
+  padding: 6px 10px;
+  outline:none;
+}
+#upload_area #open-finder:hover{
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.upload_area_right .upload_desc{
+  font-size: 11px;
+  color: #888;
+  display: none;
 }
 
 

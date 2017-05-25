@@ -14,4 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 # SImple Markdown Editer
-Rails.application.config.assets.precompile += %w( sweetalert/* simplemde/* channels/* *.js simplemde/*)
+Rails.application.config.assets.precompile += %w( sweetalert/* simplemde/* channels/* *.js simplemde/* )

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'rankings/stock', to: 'rankings#stock'
   get 'rankings/pv', to: 'rankings#pv'
 
+  post 'uploads', to: 'images#create'
+
   resources :users, only: [:show, :new, :create] do
     member do
       get :stock

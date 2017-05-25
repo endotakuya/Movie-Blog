@@ -1,0 +1,7 @@
+<div class="upload_area_left">
+<%= form_tag(uploads_path, id: 'uploader', multipart: true, remote: true) do |f| %>
+    <%= file_field_tag "images[]", id: 'select-iamges', type: :file, multiple: true %>
+    <%= hidden_field_tag :movie_id, @article.movie_id   %>
+    <%= button_tag '写真をアップロード', id: 'open-finder' %> 
+<% end %>
+</div>

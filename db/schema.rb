@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518060346) do
+ActiveRecord::Schema.define(version: 20170524090314) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "movie_title"
     t.string "article_title"
     t.string "director"
     t.string "performer"
-    t.string "content"
+    t.text "content"
     t.string "release_date"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20170518060346) do
     t.integer "point_4"
     t.integer "point_5"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "galleries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "movie_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "impressions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
