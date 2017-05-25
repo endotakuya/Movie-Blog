@@ -54,6 +54,7 @@ jQuery(document).on 'turbolinks:load', ->
     _textarea = $('#write')
     App.room.speak _textarea.val()
     _textarea.val('')
+    $('.text_length').text(400)
     e.preventDefault() 
 
 
