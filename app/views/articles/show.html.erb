@@ -19,13 +19,13 @@
       <span class="label label-success"><%= Impression.where(impressionable_id: @article.id).size ||= 0 %> PV</span></p>
   </div>
 
-  <p class="show_article_content">
+  <div class="show_article_content">
     <%= markdown(@article[:content]).html_safe %>
-  </p>
+  </div>
 
   <% # ログインをしていないユーザでも閲覧は可能 %>
   <% if !current_user.blank? && current_user.id == @article.user_id %>
-    <p><%= link_to '編集する', edit_article_path(@article.id) %></p>
+    <p class="show_article_edit"><%= link_to '編集する', edit_article_path(@article.id) %></p>
   <% end %>
 </div>
 
