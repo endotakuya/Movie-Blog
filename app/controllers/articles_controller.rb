@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new({ :movie_title => params['title'], :movie_id => params['id'], :poster_url => params['poster_path'] })
-    @galleries = Gallery.where(movie_id: params['id'])
+    @galleries = current_user.galleries.where(movie_id: params['id'])
   end
 
   def create
@@ -43,6 +43,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     # JSで値を使えるように
     gon.point_list = [ @article.point_1, @article.point_2, @article.point_3, @article.point_4, @article.point_5]
+
+    @galleries = current_user.galleries.where(movie_id: @article.movie_id)
   end
 
   def update

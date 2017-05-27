@@ -6,7 +6,6 @@ $(document).ready(function(){
      * 画像を非同期でAWS S3にアップロード
      */
     const _selectImages = $('#select-iamges')
-    _selectImages.hide()
 
     $('#open-finder').click( function(){
         _selectImages.click()

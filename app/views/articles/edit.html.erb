@@ -1,4 +1,15 @@
 <div id="article_new_contents">
+
+  <div id="upload_area" class="clearfix">
+    <%= render 'images/form_uploader' %>
+    <div class="upload_area_right">
+      <ul id="upload_images" class="clearfix">
+        <%= render @galleries %>
+      </ul>
+      <p class="upload_desc" <%= 'style=display:block;' if @galleries.present? %>>写真を選択すると、URLがクリップボードにコピーされます</p>
+    </div>
+  </div>
+  
 <%= form_for(@article, html: { class: 'form-horizontal'}) do |f| %>
 
   <div class="article_form_box clearfix">

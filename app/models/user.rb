@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :stocks, through: :user_articles, source: :article
   has_many :messages
   has_many :user_rooms
+  has_many :galleries
 
   def stock(article)
     self.user_articles.find_or_create_by(article_id: article.id)

@@ -650,6 +650,9 @@ body{ padding-top: 50px; }
   float: left;
   margin-right: 15px;
 }
+#upload_area .upload_area_left input[type='file']{
+  display: none;
+}
 #upload_area .upload_area_right{
   width: calc(100% - (130px + 15px));
   float: left;

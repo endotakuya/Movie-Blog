@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524090314) do
+ActiveRecord::Schema.define(version: 20170527193703) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "movie_title"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170524090314) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
   create_table "impressions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -101,6 +103,7 @@ ActiveRecord::Schema.define(version: 20170524090314) do
   end
 
   add_foreign_key "articles", "users"
+  add_foreign_key "galleries", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "user_articles", "articles"
   add_foreign_key "user_articles", "users"
