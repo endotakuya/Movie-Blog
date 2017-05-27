@@ -3,7 +3,11 @@
       <div class="movie_detail_inner clearfix">
         <h1><%= @movie['title'] %></h1>
         <div class="movie_detail_img">
-          <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @movie['poster_path'] %>" alt="">
+          <% unless @movie['poster_path'].blank? %>
+            <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @movie['poster_path'] %>" alt="">
+          <% else %>
+            <img src="<%= asset_path('no-image.jpg') %>" alt="">
+          <% end %>
         </div>
         <div class="movie_detail_info">
           <p><%= @movie['overview'].present? ? @movie['overview'] : '概要はありません' %></p>
@@ -24,7 +28,11 @@
       <% @articles.each do |article| %>
           <div class="article_item clearfix">
             <div class="article_item_img">
-              <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
+              <% unless article.poster_url.blank? %>
+                <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
+              <% else %>
+                <img src="<%= asset_path('no-image.jpg') %>" alt="">
+              <% end %>
             </div>
             <div class="article_info clearfix">
               <h3><%= link_to article.article_title, article %></h3>

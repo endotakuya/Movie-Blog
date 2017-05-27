@@ -6,7 +6,11 @@
       <li>
         <%= link_to room_path(room_id), class: 'clearfix' do %>
             <div class="room_list_poster">
-              <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @join_images[room_id] %>" alt="">
+              <% unless @join_images[room_id].blank? %>
+                <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @join_images[room_id] %>" alt="">
+              <% else %>
+                <img src="<%= asset_path('no-image.jpg') %>" alt="">
+              <% end %>
             </div>
             <div class="room_list_info">
               <p class="room_list_name"><%= movie_title.truncate(18) %></p>

@@ -7,7 +7,11 @@
   <% @movies.each do |movie|%>
     <div class="movie_item clearfix">
       <div class="movie_item_img">
-        <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= movie['poster_path'] %>" alt="">
+        <% unless movie['poster_path'].blank? %>
+          <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= movie['poster_path']  %>" alt="">
+        <% else %>
+          <img src="<%= asset_path('no-image.jpg') %>" alt="">
+        <% end %>
       </div>
       <div class="movie_item_info">
         <h2><%= link_to movie['title'].truncate(22), movie_path( movie['id']) %></h2>
