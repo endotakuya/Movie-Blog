@@ -27,7 +27,9 @@
 <div class="chat_timeline">
   <h2 class="room_title"><%= @join_rooms[@room_id.to_i] %></h2>
   <div id="messages", data-room_id="<%= @room_id %>" class="user_id_<%= @user_id %>">
-    <%= render @messages %>
+    <% unless @messages.blank? %>
+      <%= render @messages %>
+    <% end %>
   </div>
 
   <div class="chat_textarea">
