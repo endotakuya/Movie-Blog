@@ -165,6 +165,46 @@ footer {
   margin-right: 0;
 }
 
+.article_item .article_user_item_img {
+  width: 140px;
+  float: left;
+  padding: 10px;
+}
+
+.article_item .article_user_item_info {
+  width: calc(100% - 140px);
+  float: right;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.article_item .article_user_item_info.list_user{
+  height: 140px;
+}
+
+.article_user_item_info_batch{
+  position: absolute;
+  right: 10px;
+  bottom: 0;  
+}
+
+.article_item .article_user_item_info h3{
+  margin: 5px 0;
+}
+
+.article_item .article_user_item_info h3 a{
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+.article_item .article_user_item_info .article_user_item_name{
+  margin: 0;
+}
+.article_item .article_user_item_info .article_user_item_name a{
+  color: #333;
+  font-size: 12px;
+}
 .article_item .article_item_img {
   width: 185px;
   float: left
@@ -759,6 +799,7 @@ body{ padding-top: 50px; }
   .article_item{
     width:100%;
     float: none;
+    margin-bottom: 15px;
   }
   .movie_item{
     width:100%;

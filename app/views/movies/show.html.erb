@@ -27,16 +27,17 @@
     <div class="article_list clearfix">
       <% @articles.each do |article| %>
           <div class="article_item clearfix">
-            <div class="article_item_img">
-              <% unless article.poster_url.blank? %>
-                <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
-              <% else %>
-                <img src="<%= asset_path('no-image.jpg') %>" alt="">
-              <% end %>
+            <div class="article_user_item_img">
+              <img src="<%= gravatar_url(current_user, { size: 120 }) %>" alt="">
             </div>
-            <div class="article_info clearfix">
+            <div class="article_user_item_info clearfix list_user">
+              <p class="article_user_item_name">
+                <%= link_to '@'+article.user.name, user_path(article.user.id) %>
+                </p>
               <h3><%= link_to article.article_title, article %></h3>
-              <div class="pull-right"><%= render 'user_articles/stock_button', article: article %></div>
+              <p class="article_user_item_info_content"><%= article.content.truncate(40) %></p>
+              <p class="article_user_item_info_batch"><span class="label label-info"><%= @ranking_stock_counts[article.id] ||= 0 %> ストック</span>
+              <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>
             </div>
           </div>
       <% end %>

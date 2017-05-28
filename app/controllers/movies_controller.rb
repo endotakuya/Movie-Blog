@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
       end
 
       @movies = search_sort(@movies)
-    else
+    else    
     # キーワードがなにもないときは前のページへリダイレクト
       redirect_back(fallback_location: root_path)
     end
@@ -29,6 +29,8 @@ class MoviesController < ApplicationController
     @movie = Tmdb::Movie.detail(movie_id).to_hash
     # この映画に関連する記事を取得
     @articles = Article.where(movie_id: movie_id)
+    #ランキング数
+    @ranking_stock_counts = UserArticle.stock_ranking
   end
 
   private
