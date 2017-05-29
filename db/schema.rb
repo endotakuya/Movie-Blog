@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170527193703) do
     t.string "article_title"
     t.string "director"
     t.string "performer"
-    t.text "content"
+    t.string "content"
     t.string "release_date"
     t.bigint "user_id"
     t.datetime "created_at", null: false
