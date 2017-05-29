@@ -20,12 +20,11 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to 'ストック', rankings_stock_path %></li>
+                <li><%= link_to 'いいね', rankings_good_path %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'PV', rankings_pv_path %></li>
               </ul>
             </li>
-            <li><%= link_to 'ストック一覧', stock_user_path(current_user) %></li>
             <% if current_user.user_rooms.present? %>
             <li><%= link_to 'チャット', room_path(UserRoom.where(user_id: current_user.id).last.room_id) %></li>
             <% end %>

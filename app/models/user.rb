@@ -8,22 +8,22 @@ class User < ApplicationRecord
 
   has_many :articles
   has_many :user_articles, class_name: 'UserArticle'
-  has_many :stocks, through: :user_articles, source: :article
+  has_many :goods, through: :user_articles, source: :article
   has_many :messages
   has_many :user_rooms
   has_many :galleries
 
-  def stock(article)
+  def good(article)
     self.user_articles.find_or_create_by(article_id: article.id)
   end
 
-  def unstock(article)
-    stock = self.user_articles.find_by(article_id: article.id)
-    stock.destroy if stock
+  def ungood(article)
+    good = self.user_articles.find_by(article_id: article.id)
+    good.destroy if good
   end
 
-  def stock?(article)
-    self.stocks.include?(article)
+  def good?(article)
+    self.goods.include?(article)
   end
 
   def join_room(room_id)

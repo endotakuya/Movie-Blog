@@ -1,0 +1,15 @@
+<% if current_user.good?(article) %>
+    <%= form_tag(user_article_path(article.id), method: :delete) do %>
+        <%= hidden_field_tag :article_id, article.id %>
+        <%= button_tag type: 'submit', class: 'good_btn on' do %>
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+        <% end %>
+    <% end %>
+<% else %>
+    <%= form_tag(user_articles_path) do %>
+        <%= hidden_field_tag :article_id, article.id %>
+        <%= button_tag type: 'submit', class: 'good_btn' do %>
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+        <% end %>
+    <% end %>
+<% end %>

@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :stock]
+  before_action :require_user_logged_in, only: [:show, :good]
   
   def show
     user_id = params[:id]
     @user = User.find(user_id)
     @articles = @user.articles
-    @ranking_stock_counts = UserArticle.stock_ranking
+    @ranking_good_counts = UserArticle.good_ranking
   end
 
   def new
@@ -24,11 +24,6 @@ class UsersController < ApplicationController
       sweetalert_error('もう一度記入してください','ユーザの登録に失敗しました。', persistent: 'OK')
       render :new
     end
-  end
-
-  def stock
-    @articles = current_user.stocks
-    @ranking_stock_counts = UserArticle.stock_ranking
   end
 
   private

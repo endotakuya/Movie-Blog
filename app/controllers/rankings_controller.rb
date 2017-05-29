@@ -1,7 +1,7 @@
 class RankingsController < ApplicationController
-  def stock
-    @ranking_stock_counts = UserArticle.stock_ranking
-    @articles = Article.find(@ranking_stock_counts.keys)
+  def good
+    @ranking_good_counts = UserArticle.good_ranking
+    @articles = Article.find(@ranking_good_counts.keys)
   end
 
   def pv

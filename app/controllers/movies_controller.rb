@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
     # この映画に関連する記事を取得
     @articles = Article.where(movie_id: movie_id)
     #ランキング数
-    @ranking_stock_counts = UserArticle.stock_ranking
+    @ranking_good_counts = UserArticle.good_ranking
   end
 
   private

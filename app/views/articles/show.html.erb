@@ -1,32 +1,43 @@
 <% content_for :cover do %>
-<div class="movie_detail ">
-  <div class="movie_detail_inner clearfix">
-    <h1><%= @article[:movie_title] %></h1>
-    <div class="movie_detail_img">
-      <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= @article[:poster_url] %>" alt="">
-    </div>
-    <div class="movie_detail_info">
-      <p><%= @movie['overview'].present? ? @movie['overview'] : '概要はありません' %></p>
-    </div>
+<div class="show_article_titarea" style="background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('<%= asset_path 'article_bg.jpg' %>')">
+  <div class="show_article_titarea_inner">
+      <h2 class="show_article_tit"><%= @article[:article_title] %></h2>
   </div>
 </div>
 <% end %>
 
 <div class="show_article">
-  <h2 class="show_article_title"><%= @article[:article_title] %></h2>
+  <p class="show_info">
+    <%= link_to @article.user.name, user_path(@article.user), class: 'username' %> | 
+    <span class="date"><%= @article[:updated_at].strftime('%Y/%m/%d') %></span>
+  </p>
   <div class="show_article_table">
-    <p><span class="label label-info"><%= @ranking_stock_counts[@article.id] ||= 0 %> ストック</span>
+    <p><span class="label label-info"><%= @ranking_good_counts[@article.id] ||= 0 %> いいね</span>
       <span class="label label-success"><%= Impression.where(impressionable_id: @article.id).size ||= 0 %> PV</span></p>
+  </div>
+  <div class="show_movie_info">
+    <%= link_to movie_path(@article.movie_id) , class: 'show_movie_info_name' do %>
+      <i class="fa fa-film" aria-hidden="true"></i><%= @article.movie_title %>
+    <% end %>
+    <%= link_to room_path(@article.movie_id) , class: 'show_movie_info_room' do %>
+      <i class="fa fa-commenting-o" aria-hidden="true"></i>チャットに参加
+    <% end %>
+
   </div>
 
   <div class="show_article_content">
     <%= markdown(@article[:content]).html_safe %>
   </div>
 
-  <% # ログインをしていないユーザでも閲覧は可能 %>
-  <% if !current_user.blank? && current_user.id == @article.user_id %>
-    <p class="show_article_edit"><%= link_to '編集する', edit_article_path(@article.id) %></p>
-  <% end %>
+  <div class="show_article_footer clearfix">
+    <div class="show_article_good">
+    <%= render 'user_articles/good_button', article: @article %>
+    </div>
+    <% # ログインをしていないユーザでも閲覧は可能 %>
+    <% if !current_user.blank? && current_user.id == @article.user_id %>
+      <p class="show_article_edit"><%= link_to '編集する', edit_article_path(@article.id) %></p>
+    <% end %>
+  </div>
 </div>
 
 <div class="show_article_sidebar">

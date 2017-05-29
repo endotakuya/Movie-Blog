@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order("id DESC").page(params[:page]).per(30)
-    @ranking_stock_counts = UserArticle.stock_ranking
+    @ranking_good_counts = UserArticle.good_ranking
   end
 
   def show
@@ -17,8 +17,8 @@ class ArticlesController < ApplicationController
     # 映画情報取得
     access_tmdb
     @movie = Tmdb::Movie.detail(@article[:movie_id])
-    # ストック数をカウント
-    @ranking_stock_counts = UserArticle.stock_ranking
+    # いいね数をカウント
+    @ranking_good_counts = UserArticle.good_ranking
     # JSで値を使えるように
     gon.point_list = [ @article.point_1, @article.point_2, @article.point_3, @article.point_4, @article.point_5]
   end
