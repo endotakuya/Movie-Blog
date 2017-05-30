@@ -11,10 +11,15 @@
         </div>
         <div class="movie_detail_info">
           <p><%= @movie['overview'].present? ? @movie['overview'] : '概要はありません' %></p>
-          <p>
-            <%= link_to 'この映画の記事を書く', new_article_path(@movie), class: 'btn btn-default pull-right', data: { turbolinks: false } %>
-            <%= link_to 'この映画のチャットルーム', room_path(@movie['id']), class: 'btn btn-default pull-right' %>
-          </p>
+          <div class="movie_btn_list clearfix">
+            <%= link_to new_article_path(@movie), data: { turbolinks: false } do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>記事を書く
+            <% end %>
+            <%= link_to room_path(@movie['id']) do %>
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>チャットに参加
+            <% end %>
+            <div id="watched_btn"><%= render 'watches/watched_button', movie: @movie %></div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,9 +37,9 @@
             </div>
             <div class="article_user_item_info clearfix list_user">
               <p class="article_user_item_name">
-                <%= link_to '@'+article.user.name, user_path(article.user.id) %>
+                <%= link_to article.user.name, user_path(article.user.id) %>
                 </p>
-              <h3><%= link_to article.article_title, article %></h3>
+              <h3><%= link_to article.article_title.truncate(18), article %></h3>
               <p class="article_user_item_info_content"><%= article.content.truncate(40) %></p>
               <p class="article_user_item_info_batch"><span class="label label-info"><%= @ranking_good_counts[article.id] ||= 0 %> いいね</span>
               <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>

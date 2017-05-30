@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :user_rooms
   has_many :galleries
+  has_many :watches
 
   def good(article)
     self.user_articles.find_or_create_by(article_id: article.id)
@@ -28,6 +29,19 @@ class User < ApplicationRecord
 
   def join_room(room_id)
     self.user_rooms.find_or_create_by(room_id: room_id)
+  end
+
+  def watched(id, title, poster_path)
+    self.watches.find_or_create_by(movie_id: id, movie_title: title, movie_poster_path: poster_path)
+  end
+
+  def unwatch(movie_id)
+    watch = self.watches.find_by(movie_id: movie_id)
+    watch.destroy if watch
+  end
+
+  def watched?(movie)
+    self.watches.exists?(movie_id: movie['id'])
   end
 
 end

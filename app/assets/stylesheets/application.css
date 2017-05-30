@@ -133,7 +133,7 @@ footer {
 .movie_detail .movie_detail_info p {
   line-height: 150%;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   color: #bbb;
 }
 
@@ -145,6 +145,71 @@ footer {
 .movie_detail_info p {
   line-height: 1.3;
   font-size: 14px;
+}
+
+.movie_btn_list{
+  width: 80%;
+  margin: 0 auto;
+}
+.movie_btn_list a,
+.movie_btn_list #watched_btn{
+  display: block;
+  float: left;
+  width: 32%;
+  text-align: center;
+  color: #eee;
+}
+.movie_btn_list a{
+  margin-right: 2%;
+  transition: 0.3s;
+  border: 1px solid #eee;
+  border-radius: 0px;
+  padding: 10px;
+}
+.movie_btn_list a i{
+  font-size: 18px;
+  padding-right: 5px;
+  vertical-align: bottom;
+}
+.movie_btn_list a:hover{
+  background-color: #eee;
+  color: #333;
+  text-decoration: none;
+}
+.movie_btn_list #watched_btn{
+  margin-right: 0;
+}
+.movie_btn_list #watched_btn button{
+  background-color: transparent;
+  transition: 0.3s;
+  border: 1px solid #eee;
+  border-radius: 0px;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  color: #eee;
+  outline: none;
+}
+.movie_btn_list #watched_btn button i{
+  font-size: 18px;
+  padding-right: 5px;
+  vertical-align: bottom;
+}
+.movie_btn_list #watched_btn button:hover,
+.movie_btn_list #watched_btn button:active{
+  background-color: #eee;
+  color: #333;
+  text-decoration: none;
+}
+.movie_btn_list #watched_btn button.on{
+  background-color: #eee;
+  color: #333;
+  text-decoration: none;
+}
+.movie_btn_list #watched_btn button.on:hover{
+  background-color: transparent;
+  color: #eee;
+  text-decoration: none;
 }
 
 .article_list {
@@ -1036,7 +1101,25 @@ body{ padding-top: 50px; }
     text-align: center;
     font-size: 100%;
   }
-
+  .movie_btn_list{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .movie_btn_list a,
+  .movie_btn_list #watched_btn{
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  .movie_btn_list #watched_btn button{
+    width: 100%;
+  }
+  .movie_btn_list a{
+    margin-bottom: 10px;
+  }
+  .article_user_item_info_content{
+    display: none;
+  }
 }
 
 
@@ -1051,5 +1134,8 @@ body{ padding-top: 50px; }
   .movie_item{
     width:100%;
     float: none;
+  }
+  .movie_btn_list{
+    width: 100%;
   }
 }

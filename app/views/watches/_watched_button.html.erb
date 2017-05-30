@@ -1,0 +1,16 @@
+<% if current_user.watched?(movie) %>
+    <%= form_tag(watch_path(movie['id']), method: :delete) do %>
+        <%= button_tag type: 'submit', class: 'on' do %>
+          <i class="fa fa-eye" aria-hidden="true"></i>観た
+        <% end %>
+    <% end %>
+<% else %> 
+    <%= form_tag(watches_path) do %>
+        <%= hidden_field_tag :movie_id, movie['id'] %>
+        <%= hidden_field_tag :movie_title, movie['title'] %>
+        <%= hidden_field_tag :movie_poster_path, movie['poster_path'] %>
+        <%= button_tag type: 'submit' do %>
+          <i class="fa fa-eye" aria-hidden="true"></i>観た
+        <% end %>
+    <% end %>
+<% end %>
