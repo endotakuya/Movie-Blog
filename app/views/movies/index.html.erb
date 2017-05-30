@@ -1,6 +1,4 @@
-<div class="page-header">
-  <h1>「<%= @query %>」の検索結果</h1>
-</div>
+<h3 class="subtitle02"><i class="fa fa-search" aria-hidden="true"></i>「<%= @query %>」の検索結果</h3>
 
 <div class="movies clearfix">
 <% if @movies.present? %>
@@ -14,10 +12,21 @@
         <% end %>
       </div>
       <div class="movie_item_info">
-        <h2><%= link_to movie['title'].truncate(22), movie_path( movie['id']) %></h2>
+        <h3><%= link_to movie['title'].truncate(22), movie_path( movie['id'] ) %></h3>
+        
+        <p class="article_link">
+          <%= link_to new_article_path(movie.to_hash) do %>
+          <i class="fa fa-film" aria-hidden="true"></i>記事を書く
+          <% end %>
+        </p>
+        
+        <p class="article_link">
+          <%= link_to room_path(movie['id']) do %>
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>チャットに参加
+          <% end %>
+        </p>
+
         <dl>
-          <dt>公開日</dt>
-          <dd><%= movie['release_date'] %></dd>
           <dt>概要</dt>
           <% if movie['overview'].present? %>
             <dd><%= movie['overview'].truncate(100) %></dd>

@@ -38,14 +38,28 @@
             </div>
             <div class="mypage_article_info clearfix">
               <h3><%= link_to article.article_title.truncate(20), article %></h3>
-              <p><span class="label label-info"><%= @ranking_good_counts[article.id] ||= 0 %> いいね</span>
-                <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>
-              <p class="article_movie_title">映画：<%= article.movie_title %></p>
-              <p class="article_user_name">投稿者：<%= article.user.name %></p>
+             
+              <p class="article_link">
+                <%= link_to user_path(article.user) do %>
+                <i class="fa fa-user" aria-hidden="true"></i><%= article.user.name %>
+                <% end %>
+              </p>
+              
+              <p class="article_link">
+                <%= link_to movie_path(article.movie_id) do %>
+                <i class="fa fa-film" aria-hidden="true"></i><%= article.movie_title %>
+                <% end %>
+              </p>
+              
+              <p class="article_link">
+                <%= link_to room_path(article.movie_id) do %>
+                <i class="fa fa-commenting-o" aria-hidden="true"></i>チャットに参加
+                <% end %>
+              </p>
+              
               <p class="article_content"><%= article.content.truncate(42) %></p>
-              <% unless current_user == article.user %>
-                <div class="pull-right"><%= render 'user_articles/good_button', article: article %></div>
-              <% end %>
+              <p class="article_info_batch"><span class="label label-info"><%= @ranking_good_counts[article.id] ||= 0 %> いいね</span>
+                <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>
             </div>
           </div>
       <% end %>

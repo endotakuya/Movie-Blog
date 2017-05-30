@@ -1,9 +1,5 @@
 <% if logged_in? %>
-    <div class="page-header">
-      <h2>すべての投稿</h2>
-    </div>
+    <h3 class="subtitle02"><i class="fa fa-th-list" aria-hidden="true"></i>すべての投稿</h3>
     <%= render 'article_list', articles: @articles, ranking_good_counts: @ranking_good_counts %>
-
     <%= paginate @articles %>
-
 <% end %>
