@@ -473,13 +473,22 @@ footer {
   min-height: 328px;
 }
 
-.show_article_sidebar_title {
+.subtitle01 {
   font-size: 20px;
   margin: 0 0 20px;
   padding: 10px 0 10px 10px;
 	border-left: 6px solid #ccc;
 }
-.show_article_sidebar_title:first-of-type{ margin-bottom: 0; }
+.subtitle01:first-of-type{ margin-bottom: 0; }
+.subtitle02{
+  font-size: 24px;
+  margin: 10px 0 20px;
+  color: #333;
+  text-align: left;
+}
+.subtitle02 i{
+  padding: 0 10px 0 0;
+}
 
 .show_article_sidebar table{
   width: 100%;
@@ -985,6 +994,102 @@ body{ padding-top: 50px; }
   
 }
 
+/* User Profile */
+/* ---------------------------------------------------------- */
+.profile_box{
+  width: 100%;
+}
+.profile_box_left{
+  width: 33%;
+  float: left;
+  background-color: #FFF;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  border: 1px solid #ddd;
+}
+.profile_box_right{
+  width: 65%;
+  float: right;
+}
+.profile_name{
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid #ddd;
+}
+.watched_list{
+  width: 100%;
+  margin: 20px 0 10px;
+  padding: 0 15px;
+}
+.watched_list ul{
+  margin: 15px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.watched_list ul li{
+  border-bottom: 1px solid #ddd;
+  padding: 0 10px 10px;
+  margin: 0 0 10px;
+  position: relative;
+}
+.watched_list ul li:last-child{
+  border-bottom: none;
+  padding: 0 10px 10px;
+  margin-bottom: 0;
+}
+.watched_list ul li .m_poster{
+  width: 40px;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+.watched_list ul li .m_poster img{
+  max-width: 40px;
+  width: 100%;
+}
+.watched_list ul li .m_title{
+  width: calc(100% - (40px + 10px));
+  float: right;
+  padding: 4px 0 0;
+}
+.watched_list ul li .m_title a{ color: #333; }
+.watched_list ul li .m_chat{
+  position: absolute;
+  bottom: 8px;
+  right: 0;
+  text-align: right;
+  margin: 0;
+}
+.watched_list ul li .m_chat a{
+  font-size: 12px;
+  color: #888;
+  border-bottom: 1px dashed #014c8c;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+.watched_list ul li .m_chat a:hover {
+    color: #23527c;
+}
+.watched_list ul li .m_chat a i {
+  padding-right: 7px;
+  vertical-align: text-top;
+}
+
+
+
+
+
+
+
+
+
 /* Smartphone */
 /* ---------------------------------------------------------- */
 @media only screen and (max-width: 690px) {
@@ -1120,6 +1225,17 @@ body{ padding-top: 50px; }
   .article_user_item_info_content{
     display: none;
   }
+
+  .profile_box_left{
+    width: 100%;
+    float: none;
+    margin-bottom: 40px;
+  }
+  .profile_box_right{
+    width: 100%;
+    float: none;
+  }
+
 }
 
 

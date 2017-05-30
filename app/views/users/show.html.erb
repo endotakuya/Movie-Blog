@@ -1,18 +1,33 @@
 <div class="profile">
-<div class="row">
-  <aside class="col-xs-12 col-sm-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @user.name %></h3>
-      </div>
+<div class="profile_box clearfix">
+  <aside class="profile_box_left">
+    <h3 class="profile_name"><%= @user.name %></h3>
       <div class="panel-body">
         <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
       </div>
-    </div>
+      <% unless @watched_list.blank? %>
+      <div class="watched_list">
+      <h3 class="subtitle01">観た映画</h3>
+        <ul>
+          <% @watched_list.each do |movie| %>
+          <li class="clearfix">
+            <p class="m_poster"><img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= movie.movie_poster_path %>" alt=""></p>
+            <p class="m_title"><%= link_to movie.movie_title, movie_path(movie.movie_id) %></p>
+            <p class="m_chat">
+              <%= link_to room_path(movie.movie_id) do %>
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>チャットに参加
+              <% end %>
+            </p>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
   </aside>
-  <div class="col-xs-12 col-sm-8">
+  <div class="profile_box_right">
     <% unless @articles.empty? %>    
-      <% @articles.each do |article| %>
+      <% @articles.each do |article| %>        
+          <h3 class="subtitle02"><i class="fa fa-th-list" aria-hidden="true"></i>投稿した記事</h3>
           <div class="mypage_article_item clearfix">
             <div class="mypage_article_item_img">
               <% unless article.poster_url.blank? %>

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = User.find(user_id)
     @articles = @user.articles
     @ranking_good_counts = UserArticle.good_ranking
+    @watched_list = @user.watches
   end
 
   def new
