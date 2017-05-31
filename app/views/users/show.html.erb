@@ -26,8 +26,8 @@
   </aside>
   <div class="profile_box_right">
     <% unless @articles.empty? %>    
+    <h3 class="subtitle02"><i class="fa fa-th-list" aria-hidden="true"></i>投稿した記事</h3>
       <% @articles.each do |article| %>        
-          <h3 class="subtitle02"><i class="fa fa-th-list" aria-hidden="true"></i>投稿した記事</h3>
           <div class="mypage_article_item clearfix">
             <div class="mypage_article_item_img">
               <% unless article.poster_url.blank? %>
