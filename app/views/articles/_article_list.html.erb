@@ -13,19 +13,19 @@
           <h3><%= link_to article.article_title.truncate(28), article %></h3>
           
           <p class="article_link">
-            <%= link_to user_path(article.user) do %>
+            <%= link_to user_path(article.user), data: { turbolinks: false } do %>
             <i class="fa fa-user" aria-hidden="true"></i><%= article.user.name %>
             <% end %>
           </p>
           
           <p class="article_link">
-            <%= link_to movie_path(article.movie_id) do %>
+            <%= link_to movie_path(article.movie_id), data: { turbolinks: false } do %>
             <i class="fa fa-film" aria-hidden="true"></i><%= article.movie_title %>
             <% end %>
           </p>
           
           <p class="article_link">
-            <%= link_to room_path(article.movie_id) do %>
+            <%= link_to room_path(article.movie_id), data: { turbolinks: false } do %>
             <i class="fa fa-commenting-o" aria-hidden="true"></i>チャットに参加
             <% end %>
           </p>
