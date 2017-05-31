@@ -30,7 +30,7 @@
             <% end %>
           </p>
 
-          <p class="article_content"><%= article.content.truncate(30) %></p>
+          <p class="article_content"><%= strip_tags(markdown(article.content)).gsub(/!\[.+?\]\(.+?\)/, '').truncate(30) %></p>
 
           <p class="article_info_batch"><span class="label label-info"><%= ranking_good_counts[article.id] ||= 0 %> いいね</span>
             <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>
