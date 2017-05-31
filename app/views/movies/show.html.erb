@@ -38,7 +38,7 @@
                 <%= link_to article.user.name, user_path(article.user.id) %>
                 </p>
               <h3><%= link_to article.article_title.truncate(18), article, data: { turbolinks: false } %></h3>
-              <p class="article_user_item_info_content"><%= article.content.truncate(40) %></p>
+              <p class="article_user_item_info_content"><%= strip_tags(markdown(article.content)).gsub(/!\[.+?\]\(.+?\)/, '').truncate(60) %></p>
               <p class="article_user_item_info_batch"><span class="label label-info"><%= @ranking_good_counts[article.id] ||= 0 %> いいね</span>
               <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>
             </div>

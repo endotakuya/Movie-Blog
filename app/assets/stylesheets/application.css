@@ -1158,7 +1158,10 @@ body{ padding-top: 50px; }
   padding-right: 7px;
   vertical-align: text-top;
 }
-
+.panel-body{ text-align: center; }
+.panel-body img{
+  max-width: 100%;
+}
 
 
 /* いいね数ランキング  */

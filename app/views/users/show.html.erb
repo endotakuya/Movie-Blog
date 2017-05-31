@@ -3,7 +3,7 @@
   <aside class="profile_box_left">
     <h3 class="profile_name"><%= @user.name %></h3>
       <div class="panel-body">
-        <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+        <img src="<%= gravatar_url(@user, { size: 345 }) %>" alt="">
       </div>
       <% unless @watched_list.blank? %>
       <div class="watched_list">
@@ -57,7 +57,7 @@
                 <% end %>
               </p>
               
-              <p class="article_content"><%= article.content.truncate(42) %></p>
+              <p class="article_content"><%= strip_tags(markdown(article.content)).gsub(/!\[.+?\]\(.+?\)/, '').truncate(140) %></p>
               <p class="article_info_batch"><span class="label label-info"><%= @ranking_good_counts[article.id] ||= 0 %> いいね</span>
                 <span class="label label-success"><%= Impression.where(impressionable_id: article.id).size ||= 0 %> PV</span></p>
             </div>
