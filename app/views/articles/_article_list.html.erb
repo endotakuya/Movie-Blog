@@ -10,7 +10,7 @@
           <% end %>
         </div>
         <div class="article_info clearfix">
-          <h3><%= link_to article.article_title.truncate(28), article %></h3>
+          <h3><%= link_to article.article_title.truncate(28), article, data: { turbolinks: false }%></h3>
           
           <p class="article_link">
             <%= link_to user_path(article.user), data: { turbolinks: false } do %>
