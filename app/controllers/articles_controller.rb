@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
   impressionist actions: [:show]
 
   layout 'article'
-  include ArticlesHelper
 
   def index
     @articles = Article.all.order("id DESC").page(params[:page]).per(30)
@@ -34,7 +33,13 @@ class ArticlesController < ApplicationController
       sweetalert_success('', '記事を投稿しました', timer: 2000 )
       redirect_to movie_url(@article.movie_id)
     else
-      sweetalert_error('記入漏れがないか、確認してください','投稿できませんでした', persistent: 'OK')
+      errors = {:article_title => '記事名', :director => '監督名', :performer => '出演者', :content => '本文', :release_date => '公開日' }
+      error_message = []
+      @article.errors.messages.each_key {|key| error_message.push(errors[key]) }
+      result_error = error_message.join('、') << 'を記入してください'
+
+      sweetalert_error(result_error , '投稿できませんでした', persistent: 'OK')
+      @galleries = current_user.galleries.where(movie_id: params[:article][:movie_id])
       render :new
     end
   end
@@ -55,6 +60,7 @@ class ArticlesController < ApplicationController
     else
       sweetalert_error('記入漏れがないか、確認してください', '更新できませんでした', persistent: 'OK')
       render :edit
+      clear_flash
     end
   end
 
