@@ -1049,25 +1049,16 @@ body{ padding-top: 50px; }
   border: none;
   background: #FFF;
   padding: 4px 20px;
-  border: 1px solid #0275d8;
+  border: 1px solid	#0099e3	;
   border-radius: 4px;
   transition: 0.3s;
-  color: #0275d8;
+  color:	#0099e3	;
   outline: none;
 }
-.good_btn:hover,
-.good_btn:active,
 .good_btn.on{
-  background-color: #0275d8;
+  background-color:	#0099e3	;
   color: #FFF;
   border: 1px solid #FFF;
-}
-.good_btn.on:hover,
-.good_btn.on:active{
-  background-color: #FFF;
-  color: #0275d8;
-  border: 1px solid #0275d8;
-  
 }
 
 

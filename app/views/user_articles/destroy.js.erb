@@ -1,0 +1,2 @@
+$('.show_article_good').html("<%= escape_javascript(render 'user_articles/good_button', article: @article) %>")
+$('.show_article_table span.label-info').text('<%= @ranking_good_counts[@article.id] ||= 0 %> いいね')
