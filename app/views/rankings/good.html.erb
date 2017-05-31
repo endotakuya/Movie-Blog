@@ -1,26 +1,47 @@
-<div class="page-header">
-  <h1>いいね数ランキング</h1>
-</div>
+<h3 class="subtitle02"><i class="fa fa-thumbs-up" aria-hidden="true"></i>いいね数ランキング</h3>
+
 <% if @articles.present? %>
-    <div class="row">
-      <% @articles.each_with_index do |article, index| %>
-          <div class="item">
-            <div class="col-md-3 col-sm-4 col-xs-12">
-              <div class="panel panel-default">
-                <div class="panel-heading text-center">
-                  <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
-                </div>
-                <div class="panel-body">
-                  <p class="item-title"><%= link_to article.article_title.truncate(18), article %></p>
-                </div>
-                <div class="panel-footer">
-                  <p class="text-center"><%= index+1 %>位: <%= @ranking_good_counts[article.id] %> いいね</p>
-                </div>
-              </div>
+  <div class="good_rank_list clearfix">
+    <% @articles.each_with_index do |article, index| %>
+      <div class="good_item clearfix">
+        <div class="good_item_left">
+          <div class="good_item_rank clearfix">
+            <div class="index"><%= index+1 %></div>
+            <div class="good_score"><%= @ranking_good_counts[article.id] %><span>いいね</span></div>
+          </div>
+          <div class="good_profile clearfix">
+            <p class="good_profile_img">
+              <%= link_to user_path(article.user) do %>
+              <img src="<%= gravatar_url(article.user, { size: 120 }) %>" alt=""></p>
+              <% end %>
+            <div class="good_profile_info">
+              <p class="good_profile_name"><%= link_to article.user.name, user_path(article.user) %></p>
+              <p class="good_profile_date"><%= time_ago_in_words(article.created_at) + '前' %></p>
             </div>
           </div>
-      <% end %>
-    </div>
-<% else %>
-  <p>いいねされている記事はありません</p>
+
+          <p class="good_item_title"><%= link_to article.article_title.truncate(18), article %></p>
+
+          <div class="good_item_linkbox">
+            <p class="article_link">
+              <%= link_to movie_path(article.movie_id), data: { turbolinks: false } do %>
+              <i class="fa fa-film" aria-hidden="true"></i><%= article.movie_title %>
+              <% end %>
+            </p>
+            <p class="article_link">
+              <%= link_to room_path(article.movie_id), data: { turbolinks: false } do %>
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>チャットに参加
+              <% end %>
+            </p>
+          </div>
+
+        </div>
+        <div class="good_item_right">
+          <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2<%= article.poster_url %>" alt="">
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% else %>
+    <p>いいねされている記事はありません</p>
 <% end %>

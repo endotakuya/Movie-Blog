@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
             <li><%= link_to 'すべての投稿', articles_path, data: { turbolinks: false } %></li>
-            <li class="dropdown">
+            <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 ランキング
                 <span class="caret"></span>
@@ -24,7 +24,8 @@
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'PV', rankings_pv_path, data: { turbolinks: false } %></li>
               </ul>
-            </li>
+            </li>-->
+            <li><%= link_to 'ランキング', rankings_good_path, data: { turbolinks: false } %></li>
             <% if current_user.user_rooms.present? %>
             <li><%= link_to 'チャット', room_path(UserRoom.where(user_id: current_user.id).last.room_id), data: { turbolinks: false } %></li>
             <% end %>
