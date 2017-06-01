@@ -1456,7 +1456,7 @@ body{ padding-top: 50px; }
   }
   .cover,
   .show_article_titarea{
-    background-size: 150% 0;
+    background-size: 150% auto;
   }
 }
 
