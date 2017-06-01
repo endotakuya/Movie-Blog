@@ -6,6 +6,9 @@ class RoomsController < ApplicationController
   def show
     @room_id = params[:id]
 
+    # RoomID を 映画ID と紐付け
+    current_user.join_room(@room_id)
+
     # 過去に入ったことのあるチャット一覧
     room_ids = current_user.user_rooms.order("updated_at DESC").pluck(:room_id)
 
@@ -20,9 +23,6 @@ class RoomsController < ApplicationController
 
     # メッセージ切り分け用
     @user_id = current_user.id
-
-    # RoomID を 映画ID と紐付け
-    current_user.join_room(@room_id)
 
     # 現在のRoom内メッセージを取得
     @messages = Message.all.where(room_id: @room_id)
