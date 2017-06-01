@@ -182,12 +182,12 @@ footer {
 .movie_btn_list #watched_btn button{
   background-color: transparent;
   transition: 0.3s;
-  border: 1px solid #eee;
+  border: 1px solid #fae14f;
   border-radius: 0px;
   padding: 10px;
   display: block;
   width: 100%;
-  color: #eee;
+  color: #fae14f;
   outline: none;
 }
 .movie_btn_list #watched_btn button i{
@@ -195,23 +195,11 @@ footer {
   padding-right: 5px;
   vertical-align: bottom;
 }
-.movie_btn_list #watched_btn button:hover,
-.movie_btn_list #watched_btn button:active{
-  background-color: #eee;
-  color: #333;
-  text-decoration: none;
-}
 .movie_btn_list #watched_btn button.on{
-  background-color: #eee;
+  background-color: #fae14f;
   color: #333;
   text-decoration: none;
 }
-.movie_btn_list #watched_btn button.on:hover{
-  background-color: transparent;
-  color: #eee;
-  text-decoration: none;
-}
-
 .article_list {
   width: 100%;
 }
@@ -1444,6 +1432,9 @@ body{ padding-top: 50px; }
   .good_item_linkbox {
     max-width: 200px;
   }
+  #article_warpper{
+    width: 94%;
+  }
 
 }
 
@@ -1468,6 +1459,9 @@ body{ padding-top: 50px; }
   }
   .good_item_linkbox {
     max-width: 200px;
+  }
+  #article_warpper{
+    width: 96%;
   }
 
 }
