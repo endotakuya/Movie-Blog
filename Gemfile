@@ -86,3 +86,5 @@ gem 'fog'
 gem 'activerecord-import'
 gem 'remotipart', '~> 1.3.1'
 gem 'zeroclipboard-rails'
+# slim
+gem 'slim-rails'
